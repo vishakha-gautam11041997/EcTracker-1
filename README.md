@@ -1,7 +1,7 @@
 # EcTracker
 There are two main R files which are used in App i.e. server.R and ui.R. 
 ## Workflow
-<img src="EcTracker/blob/main/main/www/workflow.PNG">
+<img src="main/www/workflow.PNG">
 
 ### Files in folder with named signature
 There is a separate folder for all the files for the signatures.
