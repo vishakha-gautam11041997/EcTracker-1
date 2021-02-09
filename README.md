@@ -1,9 +1,14 @@
 # EcTracker
-There are two main R files which are used in App i.e. server.R and ui.R. 
+EcTracker: Tracks silent genes activation in scRNA-seq data
 ## Workflow
 <img src="main/www/workflow.PNG">
-
-### Files in folder with named signature
-There is a separate folder for all the files for the signatures.
-### Installation of the libraries
-All the libraries can be installed by two main commands i.e. install.packages(“Package_name”) or install.packages("BiocManager") BiocManager::install("Package_name")
+## Installation of the libraries
+All the libraries can be installed by two main commands <br>
+1. install.packages(“Package_name”) <br>
+2. install.packages("BiocManager") BiocManager::install("Package_name")
+## How To run files locally
+Download the github repository <br>
+insatll all the required packages <br>
+Put all the files and folders in one directory.<br>
+Run the ui.R and server.R <br>
+once user have installed all the libraries Run App option will appear. User can press that and EcTracker will work in users server.
