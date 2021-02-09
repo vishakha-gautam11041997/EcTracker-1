@@ -1,12 +1,13 @@
 # EcTracker
 EcTracker: Tracks silent genes activation in scRNA-seq data
 ## Workflow
-<img src="main/www/workflow.PNG">
-**Installation of Libraries** <br/>
+<img src="main/www/workflow.PNG"> <br/>
+###
 **Installation of the libraries** <br/>
 All the libraries can be installed by two main commands <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") BiocManager::install("Package_name")<br/>
+
 **How To run files locally** <br/>
 1. Download the github repository <br/>
 2. Insatll all the required packages <br/>
