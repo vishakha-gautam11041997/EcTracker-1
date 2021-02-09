@@ -2,7 +2,7 @@
 EcTracker: Tracks silent genes activation in scRNA-seq data
 ## Workflow
 <img src="main/www/workflow.PNG">
-**Installation of the libraries** <br/>
+**Installation of Libraries** <br/>
 **Installation of the libraries** <br/>
 All the libraries can be installed by two main commands <br/>
 1. install.packages(“Package_name”) <br/>
