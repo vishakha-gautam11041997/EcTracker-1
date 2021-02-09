@@ -13,4 +13,4 @@ All the libraries can be installed by two main commands <br/>
 4. Run the ui.R and server.R <br/>
 5. Once user have installed all the libraries Run App option will appear. User can press that and EcTracker will work in users server.
 
-**Load essential Libraries** <br/>
+**love** <br/>
