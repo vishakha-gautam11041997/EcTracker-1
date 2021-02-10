@@ -23,9 +23,9 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db(version:3.11.4), TxDb.Hsapiens.UCSC.
 1. Download the github repository <br/>
 2. Install all the required packages <br/>
 3. Put all the files and folders in one directory.<br/>
-4. Download the required files from drive link https://drive.google.com/drive/folders/121fOvDvO7MHIrUOtMBz8-o2EiXXSilXp?usp=sharing <br/>
+4. Download the required files from drive link <br/> https://drive.google.com/drive/folders/121fOvDvO7MHIrUOtMBz8-o2EiXXSilXp?usp=sharing <br/>
 5. Download the sample file from the link https://drive.google.com/drive/folders/1Hk__Muaww1aizAp1K81LYr90wtk7aBYT?usp=sharing <br/>
-6. www folder should be there in order to get videos and loader gifs. <br/>
+6. "www" folder should be there in order to get videos and loader gifs. <br/>
 7. Set the working directory by command setwd("folder name") <br/>
 8. Open the ui.R and server.R in Rstudio <br/>
 9. User can directly click on Run App or write command shiny::runApp()
