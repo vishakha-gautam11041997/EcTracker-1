@@ -8,7 +8,7 @@ EcTracker: Tracking and elucidating ectopic expression leveraging large scale sc
 2. CellEnrich utilizes the widely used AUCell package and leverages on the bonafide fetal and adult tissue markers curated from the large-scale single-cell atlases.
 3. EcTracker provides an enhanced visualization method for tracking the chromosomal locations of the selected genesets in a cluster-wise manner. 
 4. EcTracker implements DoRothEA and its associated statistical method VIPER that allow users to identify central transcription factors driving the expression of ectopic transcripts present in the user datasets.
-
+<br/><br/>
 **Installation of the libraries** <br/>
 All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
