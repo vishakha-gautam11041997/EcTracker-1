@@ -10,7 +10,7 @@ EcTracker: Tracks silent genes activation in scRNA-seq data
 4. EcTracker implements DoRothEA and its associated statistical method VIPER that allow users to identify central transcription factors driving the expression of ectopic transcripts present in the user datasets.
 
 **Installation of the libraries** <br/>
-All the libraries can be installed by two main commands <br/>
+All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") <br/>
    BiocManager::install("Package_name")<br/>
@@ -20,7 +20,6 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 
 
 **How to run files locally** <br/>
-
 1. Download the github repository <br/>
 2. Install all the required packages <br/>
 3. Put all the files and folders in one directory.<br/>
