@@ -29,6 +29,7 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 7. Set the working directory by command setwd("folder name") <br/>
 8. Open the ui.R and server.R in RStudio <br/>
 9. User can directly click on Run App or write command shiny::runApp()</br>
+
 **Instructions for using stand-alone version of the EcTracker**<br/>
 1. Download the github repository <br/>
 2. User should have R in their PC
