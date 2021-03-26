@@ -13,10 +13,10 @@ EcTracker: Tracking and elucidating ectopic expression leveraging large scale sc
 All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") <br/>
-   BiocManager::install("Package_name")<br/>
+   BiocManager::install("Package_name")<br/><br/>
 For example: To install package karyoploteR, one of the following commands can be used:<br/>
 install.packages(“karyoploteR”)<br/>
-OR<br/>
+<b>OR</b><br/>
 install.packages("BiocManager") <br/>
 BiocManager::install("karyoploteR")<br/>
 
