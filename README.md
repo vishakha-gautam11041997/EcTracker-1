@@ -27,7 +27,7 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
    install.packages("shinyShortcut")
 6. <b>Run command: <br/> 
    shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE) </b> <br>. 
-   This will create a file .shinyrun/shinyShortcut.cmd which the user can use to run the application.<br/>
+   This will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
  
  **How to run files locally**<br/> 
 1. Download the github repository. <br/>
