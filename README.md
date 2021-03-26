@@ -37,9 +37,9 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
    install.packages("shinyShortcut")
    ```
 6. <b>Run command: <br/> </b>   
- ```
- shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
- ``` 
+   ```
+   shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
+   ``` 
    This will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
  
  **How to run files locally**<br/> 
@@ -53,9 +53,9 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
    ```
 6. Open the ui.R and server.R in RStudio <br/>
 7. To run the app, user can directly click on <b>Run App</b> or use command: 
- ```
- shiny::runApp()
-```
+   ```
+   shiny::runApp()
+   ```
 
 
 
