@@ -3,7 +3,7 @@ EcTracker: Tracking and elucidating ectopic expression leveraging large scale sc
 ## Workflow
 <img src="main/www/workflow_final.PNG"> <br/>
 ###
-**Key Points**<br/> 
+## Key Points<br/> 
 1. EcTracker possesses two distinct modules i.e. CellEnrich and TissueEnrich, to allow detection of cell-type or tissue-specific genes in the user-supplemented scRNA-sequencing dataset.
 2. CellEnrich utilizes the widely used AUCell package and leverages on the bonafide fetal and adult tissue markers curated from the large-scale single-cell atlases.
 3. EcTracker provides an enhanced visualization method for tracking the chromosomal locations of the selected genes in a cluster-wise manner. 
