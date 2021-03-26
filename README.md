@@ -43,7 +43,7 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 5. Set the working directory by using the command: <br/>
    setwd("Ectracker-main/main") <br/>
 6. Open the ui.R and server.R in RStudio <br/>
-7. User can directly click on Run App or use command shiny::runApp() to run the app.</br>
+7. User can directly click on <b>Run App</b> or use command <b>shiny::runApp()</b> to run the app.</br>
 
 
 
