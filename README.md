@@ -14,6 +14,11 @@ All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") <br/>
    BiocManager::install("Package_name")<br/>
+For example: To install package karyoploteR, one of the following commands can be used:<br/>
+install.packages(“karyoploteR”)<br/>
+OR<br/>
+install.packages("BiocManager") <br/>
+BiocManager::install("karyoploteR")<br/>
 
 **List of libraries**<br/>
 karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC.hg19.knownGene (version:3.2.2), GenomicFeatures (version:1.40.1), GSEABase (version:1.50.1), graph (version:1.66.0), annotate (version:1.66.0), AnnotationDbi (version:1.50.3), GenomicRanges (version:1.40.0), GenomeInfoDb (version:1.24.2), viper (version: 1.22.0), dplyr (version:1.0.3), bcellViper (version:1.24.0), networkD3 (version:0.4), dorothea (version:1.0.1), AUCell (version:1.10.0), shiny (version:1.6.0), shinyFiles (version:0.9.0), shinyalert (version:2.0.0), shinyWidgets (version:0.5.6), shinybusy (version:0.2.2), igraph (version:1.2.6), shinyjs (version:2.0.0), shinycustomloader (version:0.9.0), shinythemes (version:1.2.0), Seurat (version:3.9.9.9008), ggplot2 (version:3.3.3), shinyShortcut <br/>                                                     
