@@ -6,7 +6,7 @@ EcTracker: Tracking and elucidating ectopic expression leveraging large scale sc
 **Key Points**<br/> 
 1. EcTracker possesses two distinct modules i.e. CellEnrich and TissueEnrich, to allow detection of cell-type or tissue-specific genes in the user-supplemented scRNA-sequencing dataset.
 2. CellEnrich utilizes the widely used AUCell package and leverages on the bonafide fetal and adult tissue markers curated from the large-scale single-cell atlases.
-3. EcTracker provides an enhanced visualization method for tracking the chromosomal locations of the selected genesets in a cluster-wise manner. 
+3. EcTracker provides an enhanced visualization method for tracking the chromosomal locations of the selected genes in a cluster-wise manner. 
 4. EcTracker implements DoRothEA and its associated statistical method VIPER that allow users to identify central transcription factors driving the expression of ectopic transcripts present in the user datasets.
 
 **Installation of the libraries** <br/>
@@ -14,7 +14,8 @@ All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") <br/>
    BiocManager::install("Package_name")<br/><br/>
-For example: To install package karyoploteR, one of the following commands can be used:<br/>
+For example:<br/>
+To install package karyoploteR, one of the following commands can be used:<br/>
 install.packages(“karyoploteR”)<br/>
 <b>OR</b><br/>
 install.packages("BiocManager") <br/>
@@ -26,9 +27,9 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 **Instructions for using stand-alone version of the EcTracker**<br/>
 1. Download the github repository. <br/>
 2. User should have R installed on their system.
-3. In R, set the working directory by command: <br/>
+3. In R, set the working directory by using the command: <br/>
    setwd("Ectracker-main/main") <br/>
-4. Install the package shinyShortcut on R using the command:
+4. Install the package <b>shinyShortcut<b/> on R using the command:
    install.packages("shinyShortcut")
 6. <b>Run command: <br/> 
    shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE) </b> <br> 
@@ -39,8 +40,8 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 2. Install all the required packages. <br/>
 3. Put all the files and folders in one directory.<br/>
 4. Download the sample file and regulon file from the link: <br/> https://drive.google.com/drive/folders/1Hk__Muaww1aizAp1K81LYr90wtk7aBYT?usp=sharing <br/>
-5. Set the working directory by command: <br/>
-   setwd("folder name") <br/>
+5. Set the working directory by using the command: <br/>
+   setwd("Ectracker-main/main") <br/>
 6. Open the ui.R and server.R in RStudio <br/>
 7. User can directly click on Run App or use command shiny::runApp() to run the app.</br>
 
