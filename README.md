@@ -17,10 +17,10 @@ All the libraries can be installed by two main commands: <br/>
 For example:<br/>
 To install package karyoploteR, one of the following commands can be used:<br/>
 ```
-install.packages(“karyoploteR”)<br/>
-<b>OR</b><br/>
-install.packages("BiocManager") <br/>
-BiocManager::install("karyoploteR")<br/>
+install.packages(“karyoploteR”)
+# OR
+install.packages("BiocManager") 
+BiocManager::install("karyoploteR")
 ```
 **List of libraries**<br/>
 karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC.hg19.knownGene (version:3.2.2), GenomicFeatures (version:1.40.1), GSEABase (version:1.50.1), graph (version:1.66.0), annotate (version:1.66.0), AnnotationDbi (version:1.50.3), GenomicRanges (version:1.40.0), GenomeInfoDb (version:1.24.2), viper (version: 1.22.0), dplyr (version:1.0.3), bcellViper (version:1.24.0), networkD3 (version:0.4), dorothea (version:1.0.1), AUCell (version:1.10.0), shiny (version:1.6.0), shinyFiles (version:0.9.0), shinyalert (version:2.0.0), shinyWidgets (version:0.5.6), shinybusy (version:0.2.2), igraph (version:1.2.6), shinyjs (version:2.0.0), shinycustomloader (version:0.9.0), shinythemes (version:1.2.0), Seurat (version:3.9.9.9008), ggplot2 (version:3.3.3), shinyShortcut <br/>                                                     
@@ -29,11 +29,17 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 1. Download the github repository. <br/>
 2. User should have R installed on their system.
 3. In R, set the working directory by using the command: <br/>
-   setwd("Ectracker-main/main") <br/>
+   ```
+   setwd("Ectracker-main/main") 
+   ```
 4. Install the package <b>shinyShortcut</b> on R using the command:
+   ```
    install.packages("shinyShortcut")
-6. <b>Run command: <br/> 
-   shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE) </b> <br> 
+   ```
+6. <b>Run command: <br/>    
+ ```
+ shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
+ ``` 
    This will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
  
  **How to run files locally**<br/> 
@@ -42,9 +48,14 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 3. Put all the files and folders in one directory.<br/>
 4. Download the sample file and regulon file from the link: <br/> https://drive.google.com/drive/folders/1Hk__Muaww1aizAp1K81LYr90wtk7aBYT?usp=sharing <br/>
 5. Set the working directory by using the command: <br/>
-   setwd("Ectracker-main/main") <br/>
+   ```
+   setwd("Ectracker-main/main")
+   ```
 6. Open the ui.R and server.R in RStudio <br/>
-7. User can directly click on <b>Run App</b> or use command <b>shiny::runApp()</b> to run the app.</br>
+7. To run the app, user can directly click on <b>Run App</b> or use command: 
+ ```
+ shiny::runApp()
+```
 
 
 
