@@ -37,7 +37,7 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
    ```
    install.packages("shinyShortcut")
    ```
-6. <b>Run command: <br/> </b>   
+6. Run command: <br/>   
    ```
    shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
    ``` 
