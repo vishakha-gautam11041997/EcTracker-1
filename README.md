@@ -21,11 +21,11 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 **Instructions for using stand-alone version of the EcTracker**<br/>
 1. Download the github repository <br/>
 2. User should have R in their PC
-3. Set the working directory by command setwd("folder name") <br/>
-4. <b>Run command: shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,
-     gitIgnore = FALSE)<b/>. This will create .vbs file which you can use to run your application.<br/>
+3. Set the working directory by command setwd("Ectracker-main/main") <br/>
+4. <b>Run command: shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)<b/>. This will create .vbs file which you can use to run your application.<br/>
  
  **How to run files locally** <br/>
+ 
 1. Download the github repository <br/>
 2. Install all the required packages <br/>
 3. Put all the files and folders in one directory.<br/>
