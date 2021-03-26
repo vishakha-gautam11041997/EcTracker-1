@@ -16,16 +16,19 @@ All the libraries can be installed by two main commands: <br/>
    BiocManager::install("Package_name")<br/>
 
 **List of libraries**<br/>
-karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC.hg19.knownGene (version:3.2.2), GenomicFeatures (version:1.40.1), GSEABase (version:1.50.1), graph (version:1.66.0), annotate (version:1.66.0), AnnotationDbi (version:1.50.3), GenomicRanges (version:1.40.0), GenomeInfoDb (version:1.24.2), viper (version: 1.22.0), dplyr (version:1.0.3), bcellViper (version:1.24.0), networkD3 (version:0.4), dorothea (version:1.0.1), AUCell (version:1.10.0), shiny (version:1.6.0), shinyFiles (version:0.9.0), shinyalert (version:2.0.0), shinyWidgets (version:0.5.6), shinybusy (version:0.2.2), igraph (version:1.2.6), shinyjs (version:2.0.0), shinycustomloader (version:0.9.0), shinythemes (version:1.2.0), Seurat (version:3.9.9.9008), ggplot2 (version:3.3.3), shinyshortcut<br/>                                                     
+karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC.hg19.knownGene (version:3.2.2), GenomicFeatures (version:1.40.1), GSEABase (version:1.50.1), graph (version:1.66.0), annotate (version:1.66.0), AnnotationDbi (version:1.50.3), GenomicRanges (version:1.40.0), GenomeInfoDb (version:1.24.2), viper (version: 1.22.0), dplyr (version:1.0.3), bcellViper (version:1.24.0), networkD3 (version:0.4), dorothea (version:1.0.1), AUCell (version:1.10.0), shiny (version:1.6.0), shinyFiles (version:0.9.0), shinyalert (version:2.0.0), shinyWidgets (version:0.5.6), shinybusy (version:0.2.2), igraph (version:1.2.6), shinyjs (version:2.0.0), shinycustomloader (version:0.9.0), shinythemes (version:1.2.0), Seurat (version:3.9.9.9008), ggplot2 (version:3.3.3), shinyShortcut <br/>                                                     
 
 **Instructions for using stand-alone version of the EcTracker**<br/>
 1. Download the github repository <br/>
 2. User should have R in their PC
-3. Set the working directory by command setwd("Ectracker-main/main") <br/>
-4. <b>Run command: shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)<b/>. This will create .vbs file which you can use to run your application.<br/>
+3. Set the working directory by command <br/>
+   setwd("Ectracker-main/main") <br/>
+4. install.packages("shinyShortcut")
+5. <b>Run command: <br/> 
+6. shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)<b/>. 
+7. This will create .shinyrun/shinyShortcut.cmd which the user can use to run the application.<br/>
  
- **How to run files locally** <br/>
- 
+ **How to run files locally** <br/> 
 1. Download the github repository <br/>
 2. Install all the required packages <br/>
 3. Put all the files and folders in one directory.<br/>
