@@ -29,7 +29,7 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 2. User should have R installed on their system.
 3. In R, set the working directory by using the command: <br/>
    setwd("Ectracker-main/main") <br/>
-4. Install the package <b>shinyShortcut<b/> on R using the command:
+4. Install the package <b>shinyShortcut</b> on R using the command:
    install.packages("shinyShortcut")
 6. <b>Run command: <br/> 
    shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE) </b> <br> 
