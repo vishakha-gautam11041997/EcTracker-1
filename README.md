@@ -14,6 +14,7 @@ All the libraries can be installed by two main commands: <br/>
 1. install.packages(“Package_name”) <br/>
 2. install.packages("BiocManager") <br/>
    BiocManager::install("Package_name")<br/><br/>
+   
 For example:<br/>
 To install package karyoploteR, one of the following commands can be used:<br/>
 ```
