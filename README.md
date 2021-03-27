@@ -28,20 +28,14 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 
 ## One time quick installation of EcTracker (standalone)<br/>
 1. Download the github repository. <br/>
-2. User should have R installed on their system.
+2. User should have latest version of R installed on their system.
 3. In R, set the working directory by using the command: <br/>
    ```
    setwd("Ectracker-main/main") 
    ```
-4. Install the package <b>shinyShortcut</b> on R using the command:
-   ```
-   install.packages("shinyShortcut")
-   ```
-6. Run command: <br/>   
-   ```
-   shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
-   ``` 
-   This will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
+4. User should also install Rtools from website https://cran.r-project.org/bin/windows/Rtools/ <br/>
+5. Install the dependencies by running line by line code of <b>Dependencies.R</b> on R 
+6. Once all the dependencies are installed this will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
  
 ## Instructions to run EcTracker code locally<br/> 
 1. Download the github repository. <br/>
