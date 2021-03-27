@@ -68,35 +68,16 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 
 BiocManager::install("AUCell")
-if (!requireNamespace("BiocManager", quietly = TRUE))
+#if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 # 
  BiocManager::install("DESeq2")
-# 
- if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("MAST")
-# 
-# BiocManager::install("TissueEnrich")
+
 # if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# 
-# BiocManager::install("TissueEnrich")
-# 
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# 
-# BiocManager::install("TissueEnrich")
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# 
-# BiocManager::install("TissueEnrich")
-# 
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# 
-# BiocManager::install("TissueEnrich")
-# if (!requireNamespace("BiocManager", quietly = TRUE))
-#   install.packages("BiocManager")
-# 
-# BiocManager::install("TissueEnrich")
-# 
+ BiocManager::install("MAST")
+############# creating .vbs and .cmd ####################
+ 
+install.packages("shinyShortcut")
+library(shinyShortcut)
+shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
+
