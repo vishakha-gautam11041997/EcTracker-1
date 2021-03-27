@@ -1,3 +1,5 @@
+
+
 library(BiocManager)
 options(repos = BiocManager::repositories())
 
@@ -36,6 +38,7 @@ DE_up=list()
 RES<-list()
 library(shiny)
 library(Seurat)
+library(dropClust)
 
 library(shinythemes)
 library(shinycustomloader)
@@ -53,21 +56,26 @@ library(networkD3)
 library(bcellViper)
 library(dplyr)
 library(viper)
-library(Rcpp)
-library(RcppEigen)
+#library(Rcpp)
+#library(RcppEigen)
 
-library(utils)
+# library(utils)
 library(ggplot2)
 ###dependencies
-library(plotly)
-library(impute)
+#library(plotly)
+#library(impute)
 library(data.table)
 #library(dqshiny)
-library(GGally)
-library(RobustRankAggreg)
+#library(GGally)
+#library(RobustRankAggreg)
 library(shinythemes)
 library(shinyBS)
-
-Rcpp::sourceCpp("src/util.cpp")
-
-
+library(DESeq2)
+library(MAST)
+# Rcpp::sourceCpp("src/util.cpp")
+abc <- readRDS("R/abc.rds")
+xyz <- readRDS("R/xyz.rds")
+pqr <- readRDS("R/pqr.rds")
+gensets <- readRDS("R/gensets.rds")
+gse<-readRDS("gse.RDS")
+doro<-readRDS("dorothea_regulon_human.RDS")
