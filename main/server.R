@@ -1,46 +1,46 @@
 
 options(shiny.maxRequestSize = 10000*1024^2)
-source("R/clustering.R")
-source("R/de_genes.R")
-source("R/modules.R")
-source("R/preprocess.R")
-source("R/plots.R")
-source("Global.R")
-feta_name=c("Ectodermal cell differentiation","Ectodermal development","Embryonic_stem_cell","Adult b_cell","Adult b_cell_plasmocyte","Fetal fibroblast","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult adrenal gland inflammatory cell","Adult monocyte","Adult AT2 cell","Adult basal_cell","Adult CB CD34+23","Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
-abc=list()
-for( i in feta_name)
-{
-  fetal_name=read.csv(paste("./",i,".tsv", sep =""))
-  fetal_name<-unique(fetal_name[,1])
-  fetal_list=as.vector(fetal_name)
-
-  abc[[i]]=GeneSet(fetal_list,setName=i)
-}
-gensets<-GeneSetCollection(abc)
-
-gtex=c("Adrenal Gland","Adipose Tissue","Brain","Colon","Esophagus","Fallopian Tube","Bladder","Heart", "Muscle","Kidney","Liver","Lung","Ovary","Prostate","Salivary Gland","Skin","Small Intestine","Spleen","Stomach","Thyroid","Breast","Nerve","Uterus","Cervix-Uterine","Pituitary","Vagina","Pancreas")
-
-xyz=list()
-for( i in gtex)
-{
-  gtex_name=read.csv(paste("./",i,".csv", sep =""))
-  gtex_name<-unique(gtex_name[,1])
-  gtex_list=as.vector(gtex_name)
-
-  xyz[[i]]=GeneSet(gtex_list,setName=i)
-}
-
-hpa=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
-
-pqr=list()
-for( i in hpa)
-{
-  hpa_name=read.csv(paste("./",i,".csv", sep =""))
-  hpa_name<-unique(hpa_name[,1])
-  hpa_list=as.vector(hpa_name)
-
-  pqr[[i]]=GeneSet(hpa_list,setName=i)
-}
+# source("R/clustering.R")
+# source("R/de_genes.R")
+# source("R/modules.R")
+# source("R/preprocess.R")
+# source("R/plots.R")
+# source("Global.R")
+# feta_name=c("Ectodermal cell differentiation","Ectodermal development","Embryonic_stem_cell","Adult b_cell","Adult b_cell_plasmocyte","Fetal fibroblast","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult adrenal gland inflammatory cell","Adult monocyte","Adult AT2 cell","Adult basal_cell","Adult CB CD34+23","Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
+# abc=list()
+# for( i in feta_name)
+# {
+#   fetal_name=read.csv(paste("./",i,".tsv", sep =""))
+#   fetal_name<-unique(fetal_name[,1])
+#   fetal_list=as.vector(fetal_name)
+# 
+#   abc[[i]]=GeneSet(fetal_list,setName=i)
+# }
+# gensets<-GeneSetCollection(abc)
+# 
+# gtex=c("Adrenal Gland","Adipose Tissue","Brain","Colon","Esophagus","Fallopian Tube","Bladder","Heart", "Muscle","Kidney","Liver","Lung","Ovary","Prostate","Salivary Gland","Skin","Small Intestine","Spleen","Stomach","Thyroid","Breast","Nerve","Uterus","Cervix-Uterine","Pituitary","Vagina","Pancreas")
+# 
+# xyz=list()
+# for( i in gtex)
+# {
+#   gtex_name=read.csv(paste("./",i,".csv", sep =""))
+#   gtex_name<-unique(gtex_name[,1])
+#   gtex_list=as.vector(gtex_name)
+# 
+#   xyz[[i]]=GeneSet(gtex_list,setName=i)
+# }
+# 
+# hpa=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
+# 
+# pqr=list()
+# for( i in hpa)
+# {
+#   hpa_name=read.csv(paste("./",i,".csv", sep =""))
+#   hpa_name<-unique(hpa_name[,1])
+#   hpa_list=as.vector(hpa_name)
+# 
+#   pqr[[i]]=GeneSet(hpa_list,setName=i)
+# }
 
 
 shinyServer(function(input,output,session){
@@ -232,6 +232,12 @@ output$dirp<-renderPrint({
     #src = "gig.gif"
   })
   
+  observeEvent(input$batch1, {
+    # Show a modal when the button is pressed
+    
+    shinyalert(title ="Please download this file and upload again in Upload matrix box for further analysis.", type = "success")
+    #src = "gig.gif"
+  })
   
   
   observeEvent(input$action1, {
@@ -257,7 +263,7 @@ output$dirp<-renderPrint({
     if(input$seurat1==0){
       return()
     }
-    withProgress(message = 'Creating Object.............', value = 0,{
+    withProgress(message = 'Creating Object...', value = 0,{
     pb <<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
     print(pb)
     print("Your object has been created, start downstream analysis now!!!!")
@@ -361,7 +367,7 @@ output$dirp<-renderPrint({
     if(input$seurat1==0){
       return()
     }
-    print("Variable feature helps in subsetting of features that exhibit high cell-to-cell variation in the dataset (i.e, they are highly expressed in some cells, and lowly expressed in others).These genes in downstream analysis helps to highlight biological signal in single-cell datasets.")
+    print("Variable feature helps in subsetting of features that exhibit high cell-to-cell variation in the dataset (i.e, they are highly expressed in some cells, and lowly expressed in others). These genes in downstream analysis helps to highlight biological signal in single-cell datasets.")
   })
 
 
@@ -383,7 +389,7 @@ output$dirp<-renderPrint({
     if(input$seurat1==0){
       return()
     }
-    withProgress(message = 'VariableFeatures plot.............', value = 0,{
+    withProgress(message = 'Variable Feature plot...', value = 0,{
       
     pb <<- NormalizeData(pb)
 
@@ -427,7 +433,7 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'Scaling and PCA .............', value = 0,{
+      withProgress(message = 'Scaling and PCA ...', value = 0,{
         
       all.genes <- rownames(pb)
       pb <<- ScaleData(pb, features = all.genes)
@@ -458,7 +464,7 @@ output$dirp<-renderPrint({
     if(input$seurat1==0){
       return()
     }
-    paste("It performs a linear dimensional reduction")
+    paste("It performs linear dimensionality reduction")
   })
 
  heatmapplot<-reactive({
@@ -472,7 +478,7 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'Heatmap Plotting.............', value = 0,{
+      withProgress(message = 'Heatmap Plotting...', value = 0,{
         
       DimHeatmap(pb, dims = 1:6, cells = 500, balanced = TRUE)
         })
@@ -482,11 +488,10 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      paste("It allows for easy exploration of the primary sources of heterogeneity in a dataset, and can be useful when trying to decide which PCs to include for further downstream analyses. Both cells and features are ordered according to their PCA scores.
-")
+      paste("It allows for easy exploration of the primary sources of heterogeneity in a dataset, and can be useful when trying to decide which PCs to include for further downstream analyses. Both cells and features are ordered according to their PCA scores.")
     })
     output$ex_karyo<-renderPrint({
-      if(input$action1==0){
+      if(input$seurat1==0){
         return()
       }
  paste("It gives user the chromosomal location of the selected gene.")
@@ -511,7 +516,7 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'JackStraw Plotting.............', value = 0,{
+      withProgress(message = 'Generating JackStraw Plot ...', value = 0,{
         
       pb <<- JackStraw(pb, num.replicate = 100)
       pb <<- ScoreJackStraw(pb, dims = 1:20)
@@ -524,7 +529,7 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-       paste("The JackStrawPlot function provides a visualization tool for comparing the distribution of p-values for each PC with a uniform distribution (dashed line). 'Significant' PCs will show strong enrichment of features with low p-values (solid curve above the dashed line")
+       paste(" The JackStrawPlot function provides a visualization tool for comparing the distribution of p-values for each PC with a uniform distribution (dashed line). 'Significant' PCs will show strong enrichment of features with low p-values (solid curve above the dashed line.")
           })
 
     output$jackstrawPlot <- downloadHandler(
@@ -541,13 +546,13 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      paste("A ranking of principle components based on the percentage of variance explained by each one")
+      paste("A ranking of principle components based on the percentage of variance explained by each one.")
     })
     output$elbow<-renderPlot({
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'Elbow Plotting.............', value = 0,{
+      withProgress(message = 'Generating Elbow Plot...', value = 0,{
         
       ElbowPlot(pb)
 })
@@ -572,7 +577,7 @@ output$dirp<-renderPrint({
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'Clustering.............', value = 0,{
+      withProgress(message = 'Clustering...', value = 0,{
         
       pb <<- FindNeighbors(pb, dims = 1:10)
       pb <<- FindClusters(pb, resolution = 0.5)
@@ -629,7 +634,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       if(input$action1==0){
         return()
       }
-      paste("The table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1,+1 represents the modes and confidence level from A-C where A means higher confidence.")
+      paste("The table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1, +1 represents the modes and confidence level from A-C where A means higher confidence.")
     })
     output$ex_gtexgrn<-renderPrint({
       if(input$action1==0){
@@ -641,7 +646,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       if(input$action1==0){
         return()
       }
-      paste("The table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1,+1 represents the modes and confidence level from A-C where A means higher confidence.")
+      paste("The table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1, +1 represents the modes and confidence level from A-C where A means higher confidence.")
     })
     output$ex_cellgrn<-renderPrint({
       if(input$action1==0){
@@ -653,40 +658,46 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       if(input$action1==0){
         return()
       }
-      paste("the table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1,+1 represents the modes and confidence level from A-C where A means higher confidence.")
+      paste("the table represents the target genes with their respective transcription factor and signature. Here mor is mode of regulation and -1, +1 represents the modes and confidence level from A-C where A means higher confidence.")
     })
 
 
-    output$markers_display<-renderTable({
-      if(input$seurat1==0){
-        return()
-      }
-     else if (input$test_use=="wilcox")
-     { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "wilcox")}
-
-    else if (input$test_use=="Likelihood-ratio test for single cell gene expression")
+    marker_display_option<-reactive({
+      if (input$test_use=="Wilcoxon")
+      { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "wilcox")}
+      
+      else if (input$test_use=="Bimod (Likelihood-ratio test for single cell gene expression)")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "bimod")}
-    else if (input$test_use=="ROC analysis")
+      else if (input$test_use=="ROC analysis")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "roc")}
-
-    else if (input$test_use=="Student's t-test")
+      
+      else if (input$test_use=="Student's t-test")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "t")}
-
-   else if (input$test_use=="negative binomial generalized linear model")
+      
+      else if (input$test_use=="Negative binomial generalized linear model")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "negbinom")}
-      else if (input$test_use=="poisson generalized linear model")
+      else if (input$test_use=="Poisson generalized linear model")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "poisson")}
-
-      else if (input$test_use=="logistic regression")
+      
+      else if (input$test_use=="Logistic Regression")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "LR")}
-
+      
       else if (input$test_use=="MAST")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "MAST")}
       else if (input$test_use=="DESeq2")
       { pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc,test.use = "DESeq2")}
       
-      withProgress(message = 'Marker identification.............', value = 0,{
-        
+    })
+    
+    output$markers_display<-renderTable({
+      if(input$seurat1==0){
+        return()
+      }
+      withProgress(message = 'Marker identification...', value = 0,{
+     marker_display_option()
+   
+      
+
        write.table(pb.markers,file="Markers_info.csv",
                   sep=",",row.names=FALSE,col.names = TRUE,quote = FALSE)
       head(pb.markers)
@@ -832,7 +843,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
 
       seEnrichmentOutput<-output2[[1]]
 
-      enrichmentOutput<-setNames(data.frame(assay(seEnrichmentOutput), row.names = rowData(seEnrichmentOutput)[,1]), colData(seEnrichmentOutput)[,1])
+      enrichmentOutput<<-setNames(data.frame(assay(seEnrichmentOutput), row.names = rowData(seEnrichmentOutput)[,1]), colData(seEnrichmentOutput)[,1])
 
 
       enrichmentOutput$Tissue<-row.names(enrichmentOutput)
@@ -1109,7 +1120,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'UMAP.............', value = 0,{
+      withProgress(message = 'UMAP...', value = 0,{
         
       pb <<- FindNeighbors(pb, dims = 1:10)
       pb <<- FindClusters(pb, resolution = 0.5)
@@ -1147,7 +1158,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       if(input$seurat1==0){
         return()
       }
-      withProgress(message = 'Marker Identification.............', value = 0,{
+      withProgress(message = 'Marker Identification...', value = 0,{
         
       pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)
        write.table(pb.markers,file="Markers_info.csv",
@@ -1259,7 +1270,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
 
 
     output$de_karyotype<-renderPlot({
-      if(input$action1==0){
+      if(input$seurat1==0){
         return()
       }
 
@@ -1359,7 +1370,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
 
     library("org.Hs.eg.db")
     kar<-pb.markers
-    gene<-(input$detected_tissue)
+    gene<-(input$feature_plot)
     gene
     gene_id<-unlist(mget(x=gene,envir=org.Hs.egALIAS2EG))
     gene_id
@@ -1628,7 +1639,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       content = function(file){
         pdf(file)
         print(
-          FeaturePlot(pb, features = c(input$detected_tissue))
+          FeaturePlot(pb, features = c(input$feature_plot))
 
 
         )
@@ -1664,7 +1675,7 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
       #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc )### have to make chnage in threshold
 
       ##########************************* read dorothea_regulon file
-      dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+      dorothea_regulon_human <-doro
 
       ## We obtain the regulons based on interactions with confidence level A, B and C
       regulon <- dorothea_regulon_human %>%
@@ -2033,6 +2044,55 @@ paste("The goal of these algorithms is to learn the underlying manifold of the d
     })
 
 
+    stouffer_cellenrich<-reactive({
+      matric<-pb@assays$RNA@counts
+      
+      cells_sum <- Matrix::colSums(matric>=3)
+      
+      matric<-matric[,intersect(which(cells_sum>=stats::quantile(cells_sum,probs = 0.001)), which(cells_sum<=stats::quantile(cells_sum,probs = 1)))]
+      
+      matric<-matric[which(Matrix::rowSums(matric > 2) > 3),]
+      
+      cells_sum<-Matrix::rowSums(t(matric))
+      
+      matric<-Matrix::t(t(matric)/(cells_sum/stats::median(cells_sum)))
+      r_name<-rownames(matric)
+      
+      #Stouffer_CellEnrich()
+      media_genes<-abc[[input$st_sc]]@geneIds
+      media_genes
+      same_genes<-intersect(r_name,media_genes)
+      if(length(same_genes)==1)
+        message=paste("There is only one common gene ",same_genes," so connot compute stouffer score ",sep="")
+      if(length(same_genes)==0)
+        message="no common gene "
+      if(length(same_genes)>1){
+        matric= matric[same_genes,]####### didnot work why?
+        
+        #Further insuring have cells with atleast 10% expressed genes
+        matric<-matric[,Matrix::colSums(matric>0)>(dim(matric)[1]/10)]
+        print(dim(matric))
+        seurat_RNA_matric<-matric
+        print(sum(apply(seurat_RNA_matric,1,function(x) sum(x)==0)))
+        print(sum(apply(seurat_RNA_matric,2,function(x) sum(x)==0)))
+        print(dim(seurat_RNA_matric))
+        ### First adding 1 (adding 1 to only zero, not only for zeros) then log2 then zscore
+        seurat_RNA_matric[seurat_RNA_matric==0]=1
+        seurat_RNA_matric<-log2(seurat_RNA_matric)
+        seurat_RNA_matric<-t(apply(seurat_RNA_matric,1,function(x) x*mean(x)/sd(x)))
+        ###Stouffer score and then boxplot for each cell type
+        stouffer_score<- apply(seurat_RNA_matric,2,function(x) sum(x)/sqrt(length(x)))
+        print(sum(is.na(stouffer_score)))
+        cell_types<-Idents(pb)[names(stouffer_score)]
+        unique_cell_types=unique(cell_types)
+        Stouffer_score_df<-data.frame("Stouffer_score"=stouffer_score, "cell_types"=cell_types)
+        ggplot(Stouffer_score_df, aes(x=cell_types, y=Stouffer_score, fill=cell_types)) +
+          geom_boxplot(position=position_dodge(.2)) +
+          geom_jitter(shape=16, position=position_jitter(.1)) +
+          theme_classic()+ theme(axis.text.x = element_text(angle = 90, hjust = 1))}
+      
+    })
+    
   output$au_score<-renderPrint({
     if(input$au1==0){
       return()
@@ -2174,7 +2234,7 @@ output$tsne<-renderPlot({
     exprMatSubset <- au_mat[which(sumByGene>0),]
     logMatrix <- log2(exprMatSubset+1)
 
-    #umap_mat<-pb[["umap"]]@cell.embeddings
+    umap_mat<-pb[["umap"]]@cell.embeddings
     umap_mat<-as.data.frame(umap_mat)
     selectedThresholds <- getThresholdSelected(cells_assignment)
 
@@ -2241,7 +2301,7 @@ output$tsne<-renderPlot({
     if(input$action1==0){
       return()
     }
-    withProgress(message = 'Plotting Stouffer.............', value = 0,{
+    withProgress(message = 'Plotting Stouffer...', value = 0,{
       
     matric<-pb@assays$RNA@counts
 
@@ -2292,7 +2352,7 @@ output$tsne<-renderPlot({
     if(input$action1==0){
       return()
     }
-    withProgress(message = 'UMAP.............', value = 0,{
+    withProgress(message = 'Calculating Wilcoxon P-Value...', value = 0,{
       
     matric<-pb@assays$RNA@counts
 
@@ -2358,7 +2418,7 @@ output$tsne<-renderPlot({
    if(input$action1==0){
      return()
    }
-   withProgress(message = 'Plotting Stouffer.............', value = 0,{
+   withProgress(message = 'Plotting Stouffer...', value = 0,{
      
    matric<-pb@assays$RNA@counts
 
@@ -2410,7 +2470,7 @@ output$tsne<-renderPlot({
    if(input$action1==0){
      return()
    }
-   withProgress(message = 'Calculating Stouffer P-Value.............', value = 0,{
+   withProgress(message = 'Calculating Stouffer P-Value...', value = 0,{
      
    matric<-pb@assays$RNA@counts
 
@@ -2480,9 +2540,7 @@ output$ex_cellrank<-renderPrint({
   }
 
 
-paste("The first step to calculate the enrichment of a signature is to create the rankings. These rankings are only an intermediate step to calculate the AUC.
-For each cell, the genes are ranked from highest to lowest value. The genes with the same expression value are shuffled. Therefore, genes with the expression '0' are randomly sorted at the end of the ranking.
-")
+paste("The first step to calculate the enrichment of a signature is to create the rankings. These rankings are only an intermediate step to calculate the AUC. For each cell, the genes are ranked from highest to lowest value. The genes with the same expression value are shuffled. Therefore, genes with the expression '0' are randomly sorted at the end of the ranking.")
 })
 output$ex_AUC<-renderPrint({
   if(input$action1==0){
@@ -2494,16 +2552,7 @@ paste("To determine whether the gene set is enriched at the top of the gene-rank
     if(input$action1==0){
       return()
     }
-paste("The AUC represents the proportion of expressed genes in the signature and their relative expression value compared to the other genes within the cell. We can use this property to explore the population of cells that are present in the dataset according to the expression of the gene-set.
-To ease the selection of an assignment threshold, this function adjusts the AUCs of each gene-set to several distributions and calculates possible thresholds:
-minimumDens (plot in Blue): Inflection point of the density curve. This is usually a good option for the ideal situation with bimodal distributions. To avoid false positives, by default this threshold will not be chosen if the second distribution is higher (i.e. the majority of cells have the gene-set active).
-
-L_k2 (plot in Red): Left distribution, after adjusting the AUC to a mixture of two distributions. The threshold is set to the right (prob: 1-(thrP/nCells)).
-
-R_k3 (plot in Pink): Right distribution, after adjusting the AUC to a mixture of three distributions. The threshold is set to the left (prob: thrP).
-
-Global_k1 (plot in Grey): global distribution (i.e. mean and standard deviations of all cells). The threshold is set to the right (prob: 1-(thrP/nCells)).
-")
+paste("The AUC represents the proportion of expressed genes in the signature and their relative expression value compared to the other genes within the cell. We can use this property to explore the population of cells that are present in the dataset according to the expression of the gene-set. To ease the selection of an assignment threshold, this function adjusts the AUCs of each gene-set to several distributions and calculates possible thresholds: minimumDens (plot in Blue): Inflection point of the density curve. This is usually a good option for the ideal situation with bimodal distributions. To avoid false positives, by default this threshold will not be chosen if the second distribution is higher (i.e. the majority of cells have the gene-set active). L_k2 (plot in Red): Left distribution, after adjusting the AUC to a mixture of two distributions. The threshold is set to the right (prob: 1-(thrP/nCells)). R_k3 (plot in Pink): Right distribution, after adjusting the AUC to a mixture of three distributions. The threshold is set to the left (prob: thrP). Global_k1 (plot in Grey): global distribution (i.e. mean and standard deviations of all cells). The threshold is set to the right (prob: 1-(thrP/nCells)).")
       })
 output$ex_heat<-renderPrint({
   if(input$action1==0){
@@ -2558,7 +2607,7 @@ output$hpa_grn_1<- renderSimpleNetwork({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Plotting Gene Regulatory Networks for HPA Datasets (Gene-Signature Network).............', value = 0,{
+  withProgress(message = 'Plotting Gene Regulatory Networks for HPA Datasets...', value = 0,{
     
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
@@ -2566,7 +2615,7 @@ output$hpa_grn_1<- renderSimpleNetwork({
   # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
   gene_name_cluster
   total_tissue_gene<-gene_name_cluster
-  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
+  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate-HPA",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
 
  # tissue_name=c("hpa - adipose tissue","hpa - appendix","hpa - bonemarrow","hpa - colon","hpa - duodenum","hpa - endometrium","hpa - esophagus","hpa - gallbladder","hpa - lung","hpa - lymph","hpa - placenta","hpa - rectum","hpa - skin","hpa - smallintestine","hpa - spleen","hpa - stomach","hpa - tonsil","hpa - urinarybladder","hpa - adrenalgland","hpa - brain","hpa - fallopiantube","hpa - kidney","hpa - liver","hpa - ovary","hpa - pancreas","hpa - prostate","hpa - salivarygland","hpa - skeletalmuscle","hpa - skeletalmuscle","hpa - smoothmuscle","hpa - thyroidgland")
   user_genes<-gene_name_cluster
@@ -2604,7 +2653,7 @@ output$hpa_grn_1<- renderSimpleNetwork({
  # pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -2706,7 +2755,7 @@ output$hpa_grn<- renderSimpleNetwork({
     return()
   }
 
-  withProgress(message = 'calculating Gene Regulatory Network for HPA Datasets (Transcription Factors-Gene Network).............', value = 0,{
+  withProgress(message = 'calculating Gene Regulatory Network for HPA Datasets...', value = 0,{
     
 
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
@@ -2717,7 +2766,7 @@ output$hpa_grn<- renderSimpleNetwork({
 
 
   total_tissue_gene<-gene_name_cluster
-  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
+  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate-HPA",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
 
   #tissue_name=c("hpa - adipose tissue","hpa - appendix","hpa - bonemarrow","hpa - colon","hpa - duodenum","hpa - endometrium","hpa - esophagus","hpa - gallbladder","hpa - lung","hpa - lymph","hpa - placenta","hpa - rectum","hpa - skin","hpa - smallintestine","hpa - spleen","hpa - stomach","hpa - tonsil","hpa - urinarybladder","hpa - adrenalgland","hpa - brain","hpa - fallopiantube","hpa - kidney","hpa - liver","hpa - ovary","hpa - pancreas","hpa - prostate","hpa - salivarygland","hpa - skeletalmuscle","hpa - skeletalmuscle","hpa - smoothmuscle","hpa - thyroidgland")
   user_genes<-gene_name_cluster
@@ -2758,7 +2807,7 @@ output$hpa_grn<- renderSimpleNetwork({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -2861,7 +2910,7 @@ output$hpa_grn_table<-renderTable({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Gene Regulatory Table for HPA datasets.............', value = 0,{
+  withProgress(message = 'Gene Regulatory Table for HPA datasets...', value = 0,{
     
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
@@ -2869,7 +2918,7 @@ output$hpa_grn_table<-renderTable({
   # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
   gene_name_cluster
   total_tissue_gene<-gene_name_cluster
-  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
+  tissue_name=c("Lymph Node-HPA",	"Tonsil-HPA",	"Appendix-HPA",	"Spleen-HPA",	"Bone Marrow-HPA"	,"Esophagus-HPA"	,"Skin-HPA",	"Colon-HPA",	"Rectum-HPA",	"Duodenum-HPA",	"Small Intestine-HPA",	"Stomach-HPA",	"Adipose Tissue-HPA",	"Lung-HPA",	"Placenta-HPA",	"Gallbladder-HPA",	"Urinary Bladder-HPA","Endometrium-HPA",	"Smooth Muscle-HPA","Fallopian Tube-HPA",	"Thyroid Gland-HPA",	"Ovary-HPA","Prostate-HPA",	"Kidney-HPA",	"Adrenal Gland-HPA",	"Brain-HPA",	"Salivary Gland-HPA","Pancreas-HPA",	"Skeletal Muscle-HPA",	"Liver-HPA",	"Heart Muscle-HPA")
 
  # tissue_name=c("hpa - adipose tissue","hpa - appendix","hpa - bonemarrow","hpa - colon","hpa - duodenum","hpa - endometrium","hpa - esophagus","hpa - gallbladder","hpa - lung","hpa - lymph","hpa - placenta","hpa - rectum","hpa - skin","hpa - smallintestine","hpa - spleen","hpa - stomach","hpa - tonsil","hpa - urinarybladder","hpa - adrenalgland","hpa - brain","hpa - fallopiantube","hpa - kidney","hpa - liver","hpa - ovary","hpa - pancreas","hpa - prostate","hpa - salivarygland","hpa - skeletalmuscle","hpa - skeletalmuscle","hpa - smoothmuscle","hpa - thyroidgland")
   user_genes<-gene_name_cluster
@@ -2901,7 +2950,7 @@ output$hpa_grn_table<-renderTable({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -2980,14 +3029,14 @@ output$gtex_grn_1<-renderSimpleNetwork({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Gene Regulatory Networks for GTEx Datasets (Transcription Factors - Genes Network).............', value = 0,{
+  withProgress(message = 'Gene Regulatory Networks for GTEx Datasets ...', value = 0,{
     
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
   gene_name_cluster<- marker_dataframe$gene
   # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
   gene_name_cluster
-  tissue_name=c("Adrenal Gland","Adipose Tissue","Brain","Colon","Esophagus","Fallopian Tube","Bladder","Heart", "Muscle","Kidney","Liver","Lung","Ovary","Prostate","Salivary Gland","Skin","Small Intestine","Spleen","Stomach","Thyroid","Breast","Nerve","Uterus","Cervix-Uterine","Pituitary","Vagina","Pancreas")
+  tissue_name=c("Adrenal Gland","Adipose Tissue","Brain","Colon","Esophagus","Fallopian Tube","Bladder","Heart", "Muscle","Kidney","Liver","Lung","Ovary","Prostate-HPA","Salivary Gland","Skin","Small Intestine","Spleen","Stomach","Thyroid","Breast","Nerve","Uterus","Cervix-Uterine","Pituitary","Vagina","Pancreas")
 
   #tissue_name=c("adrenalgland_gtex","adiposetissue_gtex","brain_gtex","colon_gtex","esophagus_gtex","fallopiantube_gtex","bladder_gtex","heart_gtex","muscle_gtex","kideny - kideny_gtex","liver_gtex","lung_gtex","ovary_gtex","prostate_gtex","salivarygland_gtex","skin_gtex","smallintestine_gtex","spleen_gtex","stomach_gtex","thyroid_gtex","breast_gtex","nerve_gtex","blood_gtex","uterus_gtex","cervix_gtex","pituitary_gtex","vagina_gtex","Pancreas_gtex")
 
@@ -3023,7 +3072,7 @@ output$gtex_grn_1<-renderSimpleNetwork({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3116,7 +3165,7 @@ output$gtex_grn<-renderSimpleNetwork({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Calculating Gene Regulatory Networks for GTEx Datasets (Genes-Signature Network).............', value = 0,{
+  withProgress(message = 'Calculating Gene Regulatory Networks for GTEx Datasets ...', value = 0,{
     
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
@@ -3157,7 +3206,7 @@ output$gtex_grn<-renderSimpleNetwork({
  # pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3251,7 +3300,7 @@ output$gtex_grn_table<-renderTable({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Calculating Gene Regulatory Networks for GTEx Datasets.............', value = 0,{
+  withProgress(message = 'Calculating Gene Regulatory Networks for GTEx Datasets...', value = 0,{
     
   marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
@@ -3291,7 +3340,7 @@ output$gtex_grn_table<-renderTable({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3373,7 +3422,7 @@ output$cell_grn_1<-renderSimpleNetwork({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Calculating Gene Regulatory Networks (Transcription Factors-Gene Networks).............', value = 0,{
+  withProgress(message = 'Calculating Gene Regulatory Networks ...', value = 0,{
     
   ###########
   tissue_name=c("Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Embryonic_stem_cell","Ectodermal cell differentiation","Ectodermal development","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Myofibroblast differentiation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult monocyte","Adult adrenal gland inflammatory cell","Adult AT2 cell","Adult b_cell","Adult b_cell_plasmocyte","Adult basal_cell","Adult CB CD34+23","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal fibroblast","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
@@ -3421,7 +3470,7 @@ output$cell_grn_1<-renderSimpleNetwork({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3522,7 +3571,7 @@ output$cell_grn<-renderSimpleNetwork({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Calculating GEne Regulatory Networks (Gene-Signature Networks).............', value = 0,{
+  withProgress(message = 'Calculating Gene Regulatory Networks ...', value = 0,{
     
   ###########
   tissue_name=c("Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Embryonic_stem_cell","Ectodermal cell differentiation","Ectodermal development","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Myofibroblast differentiation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult monocyte","Adult adrenal gland inflammatory cell","Adult AT2 cell","Adult b_cell","Adult b_cell_plasmocyte","Adult basal_cell","Adult CB CD34+23","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal fibroblast","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
@@ -3570,7 +3619,7 @@ output$cell_grn<-renderSimpleNetwork({
  # pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3726,7 +3775,7 @@ cell_grn_d<-reactive({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3807,7 +3856,7 @@ output$cell_grn_table<-renderTable({
   if(input$action1==0){
     return()
   }
-  withProgress(message = 'Generating Gene Regulatory Table............... ', value = 0,{
+  withProgress(message = 'Generating Gene Regulatory Table... ', value = 0,{
                
   tissue_name=c("Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Embryonic_stem_cell","Ectodermal cell differentiation","Ectodermal development","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Myofibroblast differentiation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult monocyte","Adult adrenal gland inflammatory cell","Adult AT2 cell","Adult b_cell","Adult b_cell_plasmocyte","Adult basal_cell","Adult CB CD34+23","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal fibroblast","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
 
@@ -3843,7 +3892,7 @@ output$cell_grn_table<-renderTable({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -3955,7 +4004,7 @@ cell_grn_d<-reactive({
 
   for( i in tissue_name)
   {
-    tissue_genes=read.csv(paste("./",i,".tsv", sep =""))
+    tissue_genes=read.csv(paste("R/",i,".tsv", sep =""))
     genes_list=intersect(tissue_genes[,1],user_genes)
     # total_tissue<-scan("tissue_genes",character())
     #total_tissue_gene<-scan("user_genes",character())
@@ -3980,7 +4029,7 @@ cell_grn_d<-reactive({
  # pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -4134,7 +4183,7 @@ hpa_common<-as.data.frame(hpa_cell)
 #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
 ##########************************* read dorothea_regulon file
-dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+dorothea_regulon_human <-doro
 
 ## We obtain the regulons based on interactions with confidence level A, B and C
 regulon <- dorothea_regulon_human %>%
@@ -4228,121 +4277,119 @@ p<-simpleNetwork(data_1, height="200px", width="300px",linkDistance = 200, charg
 
 gtex_d<-reactive({
 
-  marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
 
-  gene_name_cluster<- marker_dataframe$gene
-  # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
-  gene_name_cluster
-
-  tissue_name=c("adrenalgland_gtex","adiposetissue_gtex","brain_gtex","colon_gtex","esophagus_gtex","fallopiantube_gtex","bladder_gtex","heart_gtex","muscle_gtex","kideny - kideny_gtex","liver_gtex","lung_gtex","ovary_gtex","prostate_gtex","salivarygland_gtex","skin_gtex","smallintestine_gtex","spleen_gtex","stomach_gtex","thyroid_gtex","breast_gtex","nerve_gtex","blood_gtex","uterus_gtex","cervix_gtex","pituitary_gtex","vagina_gtex","Pancreas_gtex")
-
-  total_tissue_gene<-gene_name_cluster
-  user_genes<-gene_name_cluster
-
-
-  # tissue_name=list("heart_human","placenta_human","placenta_mouse")
-
-  hpa_cell=c()
-
-  for( i in tissue_name)
-  {
-    tissue_genes=read.csv(paste("./",i,".csv", sep =""))
-    genes_list=intersect(tissue_genes[,1],user_genes)
-    # total_tissue<-scan("tissue_genes",character())
-    #total_tissue_gene<-scan("user_genes",character())
-    if(length(genes_list)>=1)
-
+    marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
+    
+    gene_name_cluster<- marker_dataframe$gene
+    # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
+    gene_name_cluster
+    tissue_name=c("Adrenal Gland","Adipose Tissue","Brain","Colon","Esophagus","Fallopian Tube","Bladder","Heart", "Muscle","Kidney","Liver","Lung","Ovary","Prostate","Salivary Gland","Skin","Small Intestine","Spleen","Stomach","Thyroid","Breast","Nerve","Uterus","Cervix-Uterine","Pituitary","Vagina","Pancreas")
+    
+    #tissue_name=c("adrenalgland_gtex","adiposetissue_gtex","brain_gtex","colon_gtex","esophagus_gtex","fallopiantube_gtex","bladder_gtex","heart_gtex","muscle_gtex","kideny - kideny_gtex","liver_gtex","lung_gtex","ovary_gtex","prostate_gtex","salivarygland_gtex","skin_gtex","smallintestine_gtex","spleen_gtex","stomach_gtex","thyroid_gtex","breast_gtex","nerve_gtex","blood_gtex","uterus_gtex","cervix_gtex","pituitary_gtex","vagina_gtex","Pancreas_gtex")
+    
+    total_tissue_gene<-gene_name_cluster
+    user_genes<-gene_name_cluster
+    
+    
+    # tissue_name=list("heart_human","placenta_human","placenta_mouse")
+    
+    hpa_cell=c()
+    
+    for( i in tissue_name)
     {
-      #write.csv(genes_list,paste(i,"_common_genes.csv",sep=""))
-      temp=matrix(c(genes_list,rep(i,length(genes_list))),ncol=2)
-      hpa_cell=rbind(hpa_cell,temp)
-      #f2<- (tissue_genes_length/20400)
-      #fold_change<-f1/f2 incorrect number of subscripts on matrix
-    }  #P_fold[i,]=c(p,fold_change,length(genes_list))
-  }
-
-  # tissue_name=list("heart_human","placenta_human","placenta_mouse")
-
-
-  hpa_common<-as.data.frame(hpa_cell)
-  #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
-
-  ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
-
-  ## We obtain the regulons based on interactions with confidence level A, B and C
-  regulon <- dorothea_regulon_human %>%
-    dplyr::filter(confidence %in% c("A","B","C"))
-
-  ## We compute Viper Scores
-  pb <- run_viper(pb, regulon)
-
-  ## We compute the Nearest Neighbours to perform cluster
-  DefaultAssay(object = pb) <- "dorothea"
-  pb <- ScaleData(pb)
-  pb <- RunPCA(pb, features = rownames(pb), verbose = FALSE)
-  pb <- FindNeighbors(pb, dims = 1:10, verbose = FALSE)
-  pb <- FindClusters(pb, resolution = 0.5, verbose = FALSE)
-
-  pb <- RunUMAP(pb, dims = 1:10, umap.method = "uwot", metric = "cosine")
-
-  pb.markers <- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25,
-                               logfc.threshold = input$log_fc , verbose = FALSE)
-
-  DimPlot(pb, reduction = "umap", label = FALSE, pt.size = 0.5) + NoLegend()
-
-  ## We transform Viper scores, scaled by seurat, into a data frame to better
-
-  ## handling the results
-  viper_scores_df <- GetAssayData(pb, slot = "scale.data",
-                                  assay = "dorothea") %>%
-    data.frame() %>%
-    t()
-
-  ## We create a data frame containing the cells and their clusters
-  CellsClusters <- data.frame(cell = names(Idents(pb)),
-                              cell_type = as.character(Idents(pb)),
-                              stringsAsFactors = FALSE)
-
-
-  ################## my addition ###################################
-  viper_scores_clusters <- viper_scores_df  %>% data.frame() %>% rownames_to_column("cell")
-  viper_scores_clusters<- melt(viper_scores_clusters, id= "cell")
-  viper_scores_clusters<- viper_scores_clusters %>% inner_join(CellsClusters)
-
-  summarized_viper_scores <- viper_scores_clusters %>%
-    group_by(variable, cell_type) %>%
-    summarise(avg = mean(value),
-              std = sd(value))
-  ## We select the 20 most variable TFs. (20*9 populations = 180)
-
-  highly_variable_tfs <- summarized_viper_scores %>%
-    group_by(variable) %>%
-    mutate(var = var(avg))  %>%
-    ungroup() %>%
-    top_n(180, var) %>%
-    distinct(variable)
-
-  ## We prepare the data for the plot
-  summarized_viper_scores_df <- summarized_viper_scores %>%
-    semi_join(highly_variable_tfs, by = "variable") %>%
-    dplyr::select(-std) %>%
-    spread(variable, avg) %>%
-    data.frame(row.names = 1, check.names = FALSE, stringsAsFactors = FALSE)
-
-  transpose_summarise_df<-t(summarized_viper_scores_df)
-
-  merged.data <- merge(transpose_summarise_df, regulon,by.x="row.names", by.y="tf")
-  final_data_plot<- merged.data  %>% dplyr::select(Row.names,confidence,target,mor)
-  final_hpa_grn<-merge(hpa_common,final_data_plot,by.x="V1",by.y="target")
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "V1")] <- "Target"
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "Row.names")] <- "Transcription factors"
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "V2")] <- "GTEx Tissue "
-
-  final_hpa_grn$mor <- as.factor(final_hpa_grn$mor)
-
-  final_hpa_grn
-
+      tissue_genes=read.csv(paste("./",i,".csv", sep =""))
+      genes_list=intersect(tissue_genes[,1],user_genes)
+      # total_tissue<-scan("tissue_genes",character())
+      #total_tissue_gene<-scan("user_genes",character())
+      x<-nrow(pb)
+      if(length(genes_list)>1)
+        
+      {
+        #write.csv(genes_list,paste(i,"_common_genes.csv",sep=""))
+        temp=matrix(c(genes_list,rep(i,length(genes_list))),ncol=2)
+        hpa_cell=rbind(hpa_cell,temp)
+      }
+    }
+    
+    
+    hpa_common<-as.data.frame(hpa_cell)
+    #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
+    
+    ##########************************* read dorothea_regulon file
+    dorothea_regulon_human <-doro
+    
+    ## We obtain the regulons based on interactions with confidence level A, B and C
+    regulon <- dorothea_regulon_human %>%
+      dplyr::filter(confidence %in% c("A","B","C"))
+    
+    ## We compute Viper Scores
+    pb <- run_viper(pb, regulon)
+    
+    ## We compute the Nearest Neighbours to perform cluster
+    DefaultAssay(object = pb) <- "dorothea"
+    pb <- ScaleData(pb)
+    pb <- RunPCA(pb, features = rownames(pb), verbose = FALSE)
+    pb <- FindNeighbors(pb, dims = 1:10, verbose = FALSE)
+    pb <- FindClusters(pb, resolution = 0.5, verbose = FALSE)
+    
+    pb <- RunUMAP(pb, dims = 1:10, umap.method = "uwot", metric = "cosine")
+    
+    pb.markers <- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25,
+                                 logfc.threshold = input$log_fc, verbose = FALSE)
+    
+    DimPlot(pb, reduction = "umap", label = FALSE, pt.size = 0.5) + NoLegend()
+    
+    ## We transform Viper scores, scaled by seurat, into a data frame to better
+    
+    ## handling the results
+    viper_scores_df <- GetAssayData(pb, slot = "scale.data",
+                                    assay = "dorothea") %>%
+      data.frame() %>%
+      t()
+    
+    ## We create a data frame containing the cells and their clusters
+    CellsClusters <- data.frame(cell = names(Idents(pb)),
+                                cell_type = as.character(Idents(pb)),
+                                stringsAsFactors = FALSE)
+    
+    
+    ################## my addition ###################################
+    viper_scores_clusters <- viper_scores_df  %>% data.frame() %>% rownames_to_column("cell")
+    viper_scores_clusters<- melt(viper_scores_clusters, id= "cell")
+    viper_scores_clusters<- viper_scores_clusters %>% inner_join(CellsClusters)
+    
+    summarized_viper_scores <- viper_scores_clusters %>%
+      group_by(variable, cell_type) %>%
+      summarise(avg = mean(value),
+                std = sd(value))
+    ## We select the 20 most variable TFs. (20*9 populations = 180)
+    
+    highly_variable_tfs <- summarized_viper_scores %>%
+      group_by(variable) %>%
+      mutate(var = var(avg))  %>%
+      ungroup() %>%
+      top_n(180, var) %>%
+      distinct(variable)
+    
+    ## We prepare the data for the plot
+    summarized_viper_scores_df <- summarized_viper_scores %>%
+      semi_join(highly_variable_tfs, by = "variable") %>%
+      dplyr::select(-std) %>%
+      spread(variable, avg) %>%
+      data.frame(row.names = 1, check.names = FALSE, stringsAsFactors = FALSE)
+    
+    transpose_summarise_df<-t(summarized_viper_scores_df)
+    
+    merged.data <- merge(transpose_summarise_df, regulon,by.x="row.names", by.y="tf")
+    final_data_plot<- merged.data  %>% dplyr::select(Row.names,confidence,target,mor)
+    final_gtex_grn<-merge(hpa_common,final_data_plot,by.x="V1",by.y="target")
+    colnames(final_gtex_grn)[which(names(final_gtex_grn) == "V1")] <- "Target"
+    colnames(final_gtex_grn)[which(names(final_gtex_grn) == "Row.names")] <- "Transcription factors"
+    colnames(final_gtex_grn)[which(names(final_gtex_grn) == "V2")] <- "HPA Tissue "
+    
+    final_gtex_grn$mor <- as.factor(final_gtex_grn$mor)
+    
+    final_gtex_grn
 
 })
 
@@ -4354,130 +4401,6 @@ gtex_d<-reactive({
 
 
 
-gtex_grn_d<-reactive({
-  tissue_name=c("adrenalgland_gtex","adiposetissue_gtex","brain_gtex","colon_gtex","esophagus_gtex","fallopiantube_gtex","bladder_gtex","heart_gtex","muscle_gtex","kideny - kideny_gtex","liver_gtex","lung_gtex","ovary_gtex","prostate_gtex","salivarygland_gtex","skin_gtex","smallintestine_gtex","spleen_gtex","stomach_gtex","thyroid_gtex","breast_gtex","nerve_gtex","blood_gtex","uterus_gtex","cervix_gtex","pituitary_gtex","vagina_gtex","Pancreas_gtex")
-  marker_dataframe <- subset(pb.markers,pb.markers$cluster == input$grn_obs )
-
-  gene_name_cluster<- marker_dataframe$gene
-  # write.table(gene_name_cluster,"gene_name_cluster.txt",row.names=F)
-  gene_name_cluster
-  total_tissue_gene<-gene_name_cluster
-  user_genes<-gene_name_cluster
-
-
-  # tissue_name=list("heart_human","placenta_human","placenta_mouse")
-
-  hpa_cell=c()
-
-  for( i in tissue_name)
-  {
-    tissue_genes=read.csv(paste("./",i,".csv", sep =""))
-    genes_list=intersect(tissue_genes[,1],user_genes)
-    # total_tissue<-scan("tissue_genes",character())
-    #total_tissue_gene<-scan("user_genes",character())
-    if(length(genes_list)>=1)
-
-    {
-      #write.csv(genes_list,paste(i,"_common_genes.csv",sep=""))
-      temp=matrix(c(genes_list,rep(i,length(genes_list))),ncol=2)
-      hpa_cell=rbind(hpa_cell,temp)
-      #f2<- (tissue_genes_length/20400)
-      #fold_change<-f1/f2 incorrect number of subscripts on matrix
-    }  #P_fold[i,]=c(p,fold_change,length(genes_list))
-  }
-
-  # tissue_name=list("heart_human","placenta_human","placenta_mouse")
-
-
-  hpa_common<-as.data.frame(hpa_cell)
-  #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
-
-  ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
-
-  ## We obtain the regulons based on interactions with confidence level A, B and C
-  regulon <- dorothea_regulon_human %>%
-    dplyr::filter(confidence %in% c("A","B","C"))
-
-  ## We compute Viper Scores
-  pb <- run_viper(pb, regulon)
-
-  ## We compute the Nearest Neighbours to perform cluster
-  DefaultAssay(object = pb) <- "dorothea"
-  pb <- ScaleData(pb)
-  pb <- RunPCA(pb, features = rownames(pb), verbose = FALSE)
-  pb <- FindNeighbors(pb, dims = 1:10, verbose = FALSE)
-  pb <- FindClusters(pb, resolution = 0.5, verbose = FALSE)
-
-  pb <- RunUMAP(pb, dims = 1:10, umap.method = "uwot", metric = "cosine")
-
-  pb.markers <- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25,
-                               logfc.threshold = input$log_fc , verbose = FALSE)
-
-  DimPlot(pb, reduction = "umap", label = FALSE, pt.size = 0.5) + NoLegend()
-
-  ## We transform Viper scores, scaled by seurat, into a data frame to better
-
-  ## handling the results
-  viper_scores_df <- GetAssayData(pb, slot = "scale.data",
-                                  assay = "dorothea") %>%
-    data.frame() %>%
-    t()
-
-  ## We create a data frame containing the cells and their clusters
-  CellsClusters <- data.frame(cell = names(Idents(pb)),
-                              cell_type = as.character(Idents(pb)),
-                              stringsAsFactors = FALSE)
-
-
-  ################## my addition ###################################
-  viper_scores_clusters <- viper_scores_df  %>% data.frame() %>% rownames_to_column("cell")
-  viper_scores_clusters<- melt(viper_scores_clusters, id= "cell")
-  viper_scores_clusters<- viper_scores_clusters %>% inner_join(CellsClusters)
-
-  summarized_viper_scores <- viper_scores_clusters %>%
-    group_by(variable, cell_type) %>%
-    summarise(avg = mean(value),
-              std = sd(value))
-  ## We select the 20 most variable TFs. (20*9 populations = 180)
-
-  highly_variable_tfs <- summarized_viper_scores %>%
-    group_by(variable) %>%
-    mutate(var = var(avg))  %>%
-    ungroup() %>%
-    top_n(180, var) %>%
-    distinct(variable)
-
-  ## We prepare the data for the plot
-  summarized_viper_scores_df <- summarized_viper_scores %>%
-    semi_join(highly_variable_tfs, by = "variable") %>%
-    dplyr::select(-std) %>%
-    spread(variable, avg) %>%
-    data.frame(row.names = 1, check.names = FALSE, stringsAsFactors = FALSE)
-
-  transpose_summarise_df<-t(summarized_viper_scores_df)
-
-  merged.data <- merge(transpose_summarise_df, regulon,by.x="row.names", by.y="tf")
-  final_data_plot<- merged.data  %>% dplyr::select(Row.names,confidence,target,mor)
-  final_hpa_grn<-merge(hpa_common,final_data_plot,by.x="V1",by.y="target")
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "V1")] <- "Target"
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "Row.names")] <- "Transcription factors"
-  colnames(final_hpa_grn)[which(names(final_hpa_grn) == "V2")] <- "HPA Tissue "
-
-  final_hpa_grn$mor <- as.factor(final_hpa_grn$mor)
-
-  final_hpa_grn
-
-
-
-  plotm <- as.matrix(final_hpa_grn)
-  plotg <- graph_from_edgelist(rbind(plotm[,1:2],plotm[,2:3]), directed = T)
-  l <- layout_with_sugiyama(plotg, ceiling(match(V(plotg)$name, plotm)/nrow(plotm)))
-  #nvv_col <- brewer.pal(9, "Oranges")[6]
-  hello<- plot(plotg, layout=-l$layout[,2:1],vertex.size = 30, vertex.color = "PINK",
-               vertex.frame.color = "RED", vertex.label.color = "black", vertex.label.dist=1, vertex.label.cex = 1.5,main="Gene Regulatory Network")
-
-})
 
 cell_grn_dt<-reactive({
   tissue_name=c("Devloping heart atrial cardiomyocyte","Devloping heart ventricular cardiomyocyte","Ectodermal cell differentiation","Ectodermal development","Endodermal cell differentiation","Endodermal development","Fibroblast migration","Fibroblast proliferation","Myofibroblast differentiation","Mesoderm development","Mesodermal cell differentiation","Adult astrocyte","Adult antigen presenting cell (RPS high)","Adult monocyte","Adult adrenal gland inflammatory cell","Adult AT2 cell","Adult b_cell","Adult b_cell_plasmocyte","Adult basal_cell","Adult CB CD34+23","Adult chondrocyte","Adult chemosensory ","Adult dendritic_cell ","Adult endothelial_cell","Adult endothelial cell (endothelial to mesenchymal transition)","Adult endothelial cell (APC)","Adult enterocyte_progenitor","Adult enterocyte","Adult epithelial cell (intermediated)","Adult epithelial_cell","Adult erythroid_cell ","Adult erythroid progenitor cell (RP high)","Adult fasciculata_cell ","Fetal B cells","Fetal Basophil_Mast","Fetal CD1C+ DCs","Fetal CEPs","Fetal CLEC9A+ DCs","Fetal Collecting duct lineage","Fetal Connecting tubule lineage","Fetal Distal tubule lineage","Fetal EBMPs","Fetal EEPs","Fetal Enteroendocrine cells_intestine_pancreas","Fetal Enteroendocrine cells_stomach","Fetal Erythroblast","Fetal ETDs","Fetal HSCs","Fetal HSPCs","Fetal IL1B+ Microglia","Fetal ILC 3","Fetal Islet beta cells","Fetal Islet delta cells","Fetal LEC","Fetal Loop of Henle lineage","Fetal Macrophages","Fetal Meg progenitors","Fetal Meg","Fetal Megakaryoblasts","Fetal Microglia","Fetal Nephron progenitor cell","Fetal NK cells","Fetal pDCs","Fetal Perivascular macrophages","Fetal Phagocytic macrophages","Fetal Plasma cells","Fetal Podocyte lineage","Fetal Proximal tubule lineage","Fetal PTPRC+ Microglia","Fetal Pulmonary neuroendocrine cells","Fetal Renal vesicle","Fetal S100A9+ DCs","Fetal T cells","Fetal TMEM119+ Microglia","Fetal TRAF1+ APCs","Fetal Ureteric tip","Fetal Ureteric trunk","Fetal Antigen-presenting macrophages","Fetal Endocardium","Fetal adrenal","Fetal brain","Fetal kidney","Fetal liver","Fetal lung","Fetal placenta","Fetal spleen","Fetal acinar cell","Fetal chondrocyte","Fetal endocrine cell","Fetal enterocyte","Fetal epithelial progenitor","Fetal fibroblast","Fetal skeletal muscle cell","Fetal_mesenchymal_progenitor","Fetal_neuron ","Fetal_stromal_cell","Adult fibroblast","Adult gastric chief cell","Adult gastric endocrine cell","Adult goblet_cell ","Adult hepatocyte_Endodermal cell","Adult hESC87","Adult immature sertoli cell (Pre-Sertoli cell)","Adult intercalated cell","Adult intermediated cell","Adult kidney intercalated cell","Adult loop of Henle","Adult M2 Macrophage","Adult neutrophil (RPS high)","Adult neutrophil","Adult macrophage","Adult mast cell","Adult myeloid cell","Adult oligodendrocyte","Adult pancreas exocrine cell","Adult primordial germ cell","Adult proximal tubule progenitor","Adult proliferating T cell","Adult sinusoidal endothelial cell","Adult stromal_cell","Adult smooth_muscle_cell","Adult stratified_epithelial_cell","Adult T_cell","Adult thyroid follicular cell","Adult ventricle cardiomyocyte","Adult ureteric bud cell")
@@ -4514,7 +4437,7 @@ cell_grn_dt<-reactive({
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -4636,7 +4559,7 @@ gene_name_cluster
   #pb.markers <<- FindAllMarkers(pb, only.pos = TRUE, min.pct = 0.25, logfc.threshold = input$log_fc)### have to make chnage in threshold
 
   ##########************************* read dorothea_regulon file
-  dorothea_regulon_human <-read.csv("dorothea_regulon_human.csv")
+  dorothea_regulon_human <-doro
 
   ## We obtain the regulons based on interactions with confidence level A, B and C
   regulon <- dorothea_regulon_human %>%
@@ -5152,72 +5075,49 @@ output$drop_clust_plot<-renderPlot({
  # x <- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
   withProgress(message = 'Creating scatter plot', value = 0,
                {
-                 x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-                 expr<-x@assays$RNA@counts
-                 
-                 mat = t(expr)
-                 mat
-                 barcodes = rownames(mat)
-                 barcodes
-                 gene_symbols = colnames(mat)
-                 gene_symbols
-                 
-                 data_1[[1]]<-mat
-                 data_1[[2]]<-barcodes
-                 data_1[[3]]<-gene_symbols
-                 names(data_1) = c("mat","barcodes","gene_symbols")
-                 
-                 #names(data) = c("mat","barcodes")
-                 
-                 filtered.data = filter_cells(data_1)
+                 x <- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
+                 pb<- as.SingleCellExperiment(x)
+                 rm(x)
+                 pb
+                 pb<-FilterCells(pb)
+                 pb<-FilterGenes(pb)
+                               
+                # filtered.data <<- filter_cells(data_1)
                  # names(data_1) = c("mat","barcodes","gene_symbols")
                  incProgress(1/7  /5, detail = paste("Data filter complete."))
                  #names(data) = c("mat","barcodes")
                  
                  #filtered.data = filter_cells(data_1)
                  incProgress(2/7 /5, detail = paste("Normalize data.."))
-                 lnorm<-normalize(filtered.data, min.count=2, min.cell=3)
+                 pb<-CountNormalize(pb)
                  
-                 #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-                 lnorm_transposed<-t(lnorm$m)
-                 lnorm_object<-CreateSeuratObject(lnorm_transposed,min.cells = 3, min.features = 200,project = "scRNAseq")
-                 incProgress(3/7  /5, detail = paste("Computing dispersion genes..."))
-                 pb <<- FindVariableFeatures(lnorm_object, selection.method = "vst", nfeatures = 2000)
-                 dp_genes <<- VariableFeatures(pb)
                  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
                  incProgress(4/7 /5, detail = paste("dropClust Sampling..."))
                  
                  
-                 whole <- matrix.transform(lnorm,dp_genes, batch_correction = F)
+                 pb<-RankGenes(pb, ngenes_keep = 1000)
+                 pb<-Sampling(pb)
+                 pb<-RankPCAGenes(pb)
+                 pb<-Cluster(pb, method = "default", conf = 0.8)
                  
-                 sample_ids = initial.samples(filtered.data, rare_data=NULL)
-                 samples_louvain<-sampling(whole[sample_ids,])
-                 subsamples_louvain<-sample_ids[samples_louvain]
+                 pb<-PlotEmbedding(pb, embedding = "umap", spread = 10, min_dist = 0.1)
                  
-                 incProgress(5/7 / 5, detail = paste("Clustering..."))
-                 top_pc_genes<-pc_genes(whole[subsamples_louvain,],top=200)
-                 clust.list<-cluster.cells(data = whole[,top_pc_genes], sp.samples = subsamples_louvain,
-                                           default = T, minClusterSize = 20,deepSplit = 2, conf = 0.5)
+                 plot_data = data.frame("Y1" = reducedDim(pb,"umap")[,1], Y2 = reducedDim(pb, "umap")[,2], color = pb$ClusterIDs)
                  
-                 incProgress(6/7 /5, detail = paste("Computing 2D map..."))
-                 
-                 PROJ <- compute_2d_embedding(data = whole[,top_pc_genes],
-                                              sp.samples = subsamples_louvain,
-                                              clust.list = clust.list)
-                 
-               })
-  umap_mat_1<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
+                p=ScatterPlot(pb,title = "Clusters") })
   
-  ret_frame = cbind(filtered.data$barcodes, umap_mat_1)
-  
-  temp = complete.cases(umap_mat_1)
-  umap_mat_1 = umap_mat_1[temp, ]
-  p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
-  umap_mat<-ret_frame
-  rownames(umap_mat)<-umap_mat[,1]
-  umap_mat<-umap_mat[,-1]
-  names(umap_mat)<-c("UMAP_1","UMAP_2","color")
-  umap_mat<<-umap_mat[,-3]
+  # umap_mat_1<<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
+  # 
+  # ret_frame <<- cbind(filtered.data$barcodes, umap_mat_1)
+  # 
+  # temp = complete.cases(umap_mat_1)
+  # umap_mat_1 = umap_mat_1[temp, ]
+  # p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
+  # umap_mat<-ret_frame
+  # rownames(umap_mat)<-umap_mat[,1]
+  # umap_mat<-umap_mat[,-1]
+  # names(umap_mat)<-c("UMAP_1","UMAP_2","color")
+  # umap_mat<<-umap_mat[,-3]
   p
 
 })
@@ -5228,208 +5128,192 @@ output$drop_clust_markers<-renderTable({
   }
   withProgress(message = 'Marker Identification ...', value = 0,{
     
-  x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  expr<-x@assays$RNA@counts
+  x <- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
+  pb<- as.SingleCellExperiment(x)
+  rm(x)
+  pb
+  pb<-FilterCells(pb)
+  pb<-FilterGenes(pb)
+  pb<-CountNormalize(pb)
+  pb<-RankGenes(pb, ngenes_keep = 1000)
+  pb<-Sampling(pb)
+  pb<-RankPCAGenes(pb)
+  pb<-Cluster(pb, method = "default", conf = 0.8)
   
-  mat = t(expr)
-  mat
-  barcodes = rownames(mat)
-  barcodes
-  gene_symbols = colnames(mat)
-  gene_symbols
+  pb<-PlotEmbedding(pb, embedding = "umap", spread = 10, min_dist = 0.1)
   
-  data_1[[1]]<-mat
-  data_1[[2]]<-barcodes
-  data_1[[3]]<-gene_symbols
-  names(data_1) = c("mat","barcodes","gene_symbols")
+  plot_data = data.frame("Y1" = reducedDim(pb,"umap")[,1], Y2 = reducedDim(pb, "umap")[,2], color = pb$ClusterIDs)
   
-  #names(data) = c("mat","barcodes")
+  ScatterPlot(pb,title = "Clusters")
+  #DE_genes_all = FindMarkers(pb, selected_clusters=NA, lfc_th = 1, q_th =0.001, nDE=30)
   
-  
-  #names(data) = c("mat","barcodes")
-  
-  filtered.data = filter_cells(data_1)
-  lnorm<-normalize(filtered.data, min.count=2, min.cell=3)
-  
-  #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  lnorm_transposed<-t(lnorm$m)
-  lnorm_object<-CreateSeuratObject(lnorm_transposed,min.cells = 3, min.features = 200,project = "scRNAseq")
-  pb <<- FindVariableFeatures(lnorm_object, selection.method = "vst", nfeatures = 2000)
-  dp_genes <<- VariableFeatures(pb)
-  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
-  
-  #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  
-  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
-  
-  
-  whole <- matrix.transform(lnorm,dp_genes, batch_correction = F)
-  
-  sample_ids = initial.samples(filtered.data, rare_data=NULL)
-  samples_louvain<-sampling(whole[sample_ids,])
-  subsamples_louvain<-sample_ids[samples_louvain]
-  top_pc_genes<-pc_genes(whole[subsamples_louvain,],top=200)
-  clust.list<-cluster.cells(data = whole[,top_pc_genes], sp.samples = subsamples_louvain,
-                            default = T, minClusterSize = 20,deepSplit = 2, conf = 0.5)
-  
-  PROJ <- compute_2d_embedding(data = whole[,top_pc_genes],
-                               sp.samples = subsamples_louvain,
-                               clust.list = clust.list)
-  
-  
-  umap_mat_1<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
-  
-  ret_frame = cbind(filtered.data$barcodes, umap_mat_1)
-  
-  temp = complete.cases(umap_mat)
-  umap_mat_1 = umap_mat_1[temp, ]
-  
-  p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
-  
-  
-  
-  select_sample_ids = which(is.na(clust.list$cluster.ident)==F)
-  #incProgress(1/5 /5, detail = paste("Computating..."))
-  
-  
-  # Read predicted cluster IDs
-  pred_labels = clust.list$cluster.ident[select_sample_ids]
-  
-  return_list[[1]]<-p
-  return_list[[2]]<-ret_frame
-  return_list[[3]]<-pred_labels
-  return_list[[4]]<-lnorm
-  return_list[[5]]<-clust.list
-  return_list[[6]]<-filtered.data$barcodes
-  return_list[[7]]<-select_sample_ids
-  
-  names(return_list)<-c("plot","df","pred_labels","lnorm","clust.list","barcodes","assigned")
-  
-  
-  
-  
-  df<-return_list$df
-  
-  names(df)<-c("cell_ids", "X", "Y", "cluster_ids")
-  
-  
-  df<-df[,c("cell_ids", "cluster_ids")]
-  
-  clust.list = return_list$clust.list
-  lnorm = return_list$lnorm
-  de.mat<- reduce_mat_de(lnorm,clust.list)
-  
-  
-  
-  # Pick Cell Type Specific Genes
-  #############################
-  
-  # Cells of interest
-  GRP = levels(clust.list$cluster.ident)
-  # int_cells  = which(label %in% GRP)
-  
-  
-  lfc_th = 1
-  q_th = 0.001
-  nDE = 25
-  
-  raw_data = de.mat$mat_samples
-  labels = de.mat$labels
-  
-  
-  cell.ids = which(labels %in% GRP)
-  
-  
-  
-  
-  
-  n = length(GRP)
-  
-  #incProgress(2/5 /5, detail = paste("Computing Wilcoxon p values..."))
-  
-  
-  for(i in unique(GRP)){
-    
-    IND_a = which(labels == i)
-    #IND_b = setdiff(1:ncol(data),IND_a)
-    IND_b = which(labels != i)
-    cat(paste("\nCluster",i,":\n"))
-    
-    # getting wilcoxon p values
-    cat("\nComputing Wilcoxon p values...\n")
-    PVAL<-apply(raw_data,2,function(x) stats::wilcox.test(x[IND_a],x[IND_b])$p.value)
-    
-    # fdr
-    fdr <- stats::p.adjust(PVAL,method="fdr")
-    
-    # prepare final result
-    DE_res <- data.frame(cbind(pvalues=PVAL,qvalues=fdr))
-    
-    rownames(DE_res) <- colnames(raw_data)
-    
-    
-    # log fold change
-    cat("Computing Log fold change values...\n")
-    LFC = log2(Matrix::colMeans(raw_data[IND_a,])/Matrix::colMeans(raw_data[IND_b,]))
-    
-    
-    cat("\nCompleted successfully.\n")
-    
-    
-    sig = DE_res[intersect(which(LFC>0),
-                           intersect(which(abs(LFC)>=lfc_th),
-                                     which(DE_res$qvalues<=q_th))),]
-    
-    
-    rN = rownames(sig)[order(sig$qvalues)]
-    
-    
-    
-    DE_list[[paste0(i)]] = data.frame(gene = rN,
-                                      q_val = DE_res$qvalues[match(rN,rownames(DE_res))],
-                                      fc = LFC[match(rN,names(LFC))])
-  }
-  
-  #incProgress(3/5 /5, detail = paste("Dataframe for DE genes "))
-  
-  
-  for(type in names(DE_list)){
-    ordered = order(DE_list[[type]]$q_val,abs(DE_list[[type]]$fc))
-    row = as.character(utils::head(DE_list[[type]]$gene[ordered],nDE))
-    DE_up[[type]]= row
-  }
-  
-  DE_up<-top.de.genes(DE_list, nDE)
-  
-  genes_df <-list_to_df(DE_up)
-  colnames(genes_df)<-paste("cluster",names(DE_up),sep='_')
-  
-  p<-plot_heatmap(de_data = de.mat, DE_res = DE_list,nDE = 10)
-  RES[[1]]<-genes_df
-  RES[[2]]<-DE_list
-  RES[[3]]<-p
-  RES[[4]]<-GRP
-  
-  
-  
-  names(RES) = c("genes.df",  "DE_res" , "heatmap","types")
-  
-  # incProgress(4/5 /5, detail = paste("DE genes....."))
-  
-  
-  z<-RES$types
+  incProgress(2/5 /5, detail = paste("Computing Wilcoxon P-Values..."))
+  dppb.markers= dropClust::FindMarkers(pb, lfc_th = 1, q_th =0.001, nDE=30)
+  z<-pb$Sample_ClusterIDs
   z<-unique(z)
   d = c()
   for(i in z)
   {
-    y<- DE_list[[i]]
-    y$clusters<-i
+    y<- dppb.markers$DE_res[[i]]
+    y$cluster<-i
     #x<- cbind(x,y)
     # temp=matrix(c(y,i,ncol=2))
     d=rbind(d,y)
   }
+  logcounts(pb) <- assay(pb, "counts")
+  pb <<- as.Seurat(pb)
+ 
+  
   pb.markers<<-d
-  head(pb.markers,20)
+  head(pb.markers)
+ 
+  # 
+  #   
+  # 
+  # 
+  # 
+  # select_sample_ids = which(is.na(clust.list$cluster.ident)==F)
+  # incProgress(1/5 /5, detail = paste("Computating..."))
+  # 
+  # 
+  # # Read predicted cluster IDs
+  # pred_labels = clust.list$cluster.ident[select_sample_ids]
+  # 
+  # return_list[[1]]<-p
+  # return_list[[2]]<-ret_frame
+  # return_list[[3]]<-pred_labels
+  # return_list[[4]]<-lnorm
+  # return_list[[5]]<-clust.list
+  # return_list[[6]]<-filtered.data$barcodes
+  # return_list[[7]]<-select_sample_ids
+  # 
+  # names(return_list)<-c("plot","df","pred_labels","lnorm","clust.list","barcodes","assigned")
+  # 
+  # 
+  # 
+  # 
+  # df<-return_list$df
+  # 
+  # names(df)<-c("cell_ids", "X", "Y", "cluster_ids")
+  # 
+  # 
+  # df<-df[,c("cell_ids", "cluster_ids")]
+  # 
+  # clust.list = return_list$clust.list
+  # lnorm = return_list$lnorm
+  # de.mat<- reduce_mat_de(lnorm,clust.list)
+  # 
+  # 
+  # 
+  # # Pick Cell Type Specific Genes
+  # #############################
+  # 
+  # # Cells of interest
+  # GRP = levels(clust.list$cluster.ident)
+  # # int_cells  = which(label %in% GRP)
+  # 
+  # 
+  # lfc_th = 1
+  # q_th = 0.001
+  # nDE = 25
+  # 
+  # raw_data = de.mat$mat_samples
+  # labels = de.mat$labels
+  # 
+  # 
+  # cell.ids = which(labels %in% GRP)
+  # 
+  # 
+  # 
+  # 
+  # 
+  # n = length(GRP)
+  # 
+  # 
+  # 
+  # 
+  # for(i in unique(GRP)){
+  #   
+  #   IND_a = which(labels == i)
+  #   #IND_b = setdiff(1:ncol(data),IND_a)
+  #   IND_b = which(labels != i)
+  #   cat(paste("\nCluster",i,":\n"))
+  #   
+  #   # getting wilcoxon p values
+  #   cat("\nComputing Wilcoxon P-Values...\n")
+  #   PVAL<-apply(raw_data,2,function(x) stats::wilcox.test(x[IND_a],x[IND_b])$p.value)
+  #   
+  #   # fdr
+  #   fdr <- stats::p.adjust(PVAL,method="fdr")
+  #   
+  #   # prepare final result
+  #   DE_res <- data.frame(cbind(pvalues=PVAL,qvalues=fdr))
+  #   
+  #   rownames(DE_res) <- colnames(raw_data)
+  #   
+  #   
+  #   # log fold change
+  #   cat("Computing Log fold change values...\n")
+  #   LFC = log2(Matrix::colMeans(raw_data[IND_a,])/Matrix::colMeans(raw_data[IND_b,]))
+  #   
+  #   
+  #   cat("\nCompleted successfully.\n")
+  #   
+  #   
+  #   sig = DE_res[intersect(which(LFC>0),
+  #                          intersect(which(abs(LFC)>=lfc_th),
+  #                                    which(DE_res$qvalues<=q_th))),]
+  #   
+  #   
+  #   rN = rownames(sig)[order(sig$qvalues)]
+  #   
+  #   
+  #   
+  #   DE_list[[paste0(i)]] = data.frame(gene = rN,
+  #                                     q_val = DE_res$qvalues[match(rN,rownames(DE_res))],
+  #                                     fc = LFC[match(rN,names(LFC))])
+  # }
+  # 
+  # incProgress(3/5 /5, detail = paste("Dataframe for DE genes... "))
+  # 
+  # 
+  # for(type in names(DE_list)){
+  #   ordered = order(DE_list[[type]]$q_val,abs(DE_list[[type]]$fc))
+  #   row = as.character(utils::head(DE_list[[type]]$gene[ordered],nDE))
+  #   DE_up[[type]]= row
+  # }
+  # 
+  # DE_up<-top.de.genes(DE_list, nDE)
+  # 
+  # genes_df <-list_to_df(DE_up)
+  # colnames(genes_df)<-paste("cluster",names(DE_up),sep='_')
+  # 
+  # p<-plot_heatmap(de_data = de.mat, DE_res = DE_list,nDE = 10)
+  # RES[[1]]<-genes_df
+  # RES[[2]]<-DE_list
+  # RES[[3]]<-p
+  # RES[[4]]<-GRP
+  # 
+  # 
+  # 
+  # names(RES) = c("genes.df",  "DE_res" , "heatmap","types")
+  # 
+  #  incProgress(4/5 /5, detail = paste("DE genes..."))
+  # 
+  # 
+  # z<-RES$types
+  # z<-unique(z)
+  # d = c()
+  # for(i in z)
+  # {
+  #   y<- DE_list[[i]]
+  #   y$clusters<-i
+  #   #x<- cbind(x,y)
+  #   # temp=matrix(c(y,i,ncol=2))
+  #   d=rbind(d,y)
+  # }
+  # pb.markers<<-d
+  # head(pb.markers,20)
 })
 })
 
@@ -5439,75 +5323,53 @@ output$drop_clust_markers<-renderTable({
 
 scatter_drop<-reactive({
   
-  withProgress(message = 'Creating scatter plot', value = 0,
-               {
-  x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  expr<-x@assays$RNA@counts
-
-  mat = t(expr)
-  mat
-  barcodes = rownames(mat)
-  barcodes
-  gene_symbols = colnames(mat)
-  gene_symbols
-  
-  data_1[[1]]<-mat
-  data_1[[2]]<-barcodes
-  data_1[[3]]<-gene_symbols
-  names(data_1) = c("mat","barcodes","gene_symbols")
-
-  #names(data) = c("mat","barcodes")
-
-  filtered.data = filter_cells(data_1)
- # names(data_1) = c("mat","barcodes","gene_symbols")
-  incProgress(1/7  /5, detail = paste("Data filter complete."))
-  #names(data) = c("mat","barcodes")
-  
-  #filtered.data = filter_cells(data_1)
-  incProgress(2/7 /5, detail = paste("Normalize data.."))
-  lnorm<-normalize(filtered.data, min.count=2, min.cell=3)
-  
-  #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  lnorm_transposed<-t(lnorm$m)
-  lnorm_object<-CreateSeuratObject(lnorm_transposed,min.cells = 3, min.features = 200,project = "scRNAseq")
-  incProgress(3/7  /5, detail = paste("Computing dispersion genes..."))
-   pb <<- FindVariableFeatures(lnorm_object, selection.method = "vst", nfeatures = 2000)
-  dp_genes <<- VariableFeatures(pb)
-  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
-  incProgress(4/7 /5, detail = paste("dropClust Sampling..."))
-  
-  
-  whole <- matrix.transform(lnorm,dp_genes, batch_correction = F)
-  
-  sample_ids = initial.samples(filtered.data, rare_data=NULL)
-  samples_louvain<-sampling(whole[sample_ids,])
-  subsamples_louvain<-sample_ids[samples_louvain]
-  
-  incProgress(5/7 / 5, detail = paste("Clustering..."))
-  top_pc_genes<-pc_genes(whole[subsamples_louvain,],top=200)
-  clust.list<-cluster.cells(data = whole[,top_pc_genes], sp.samples = subsamples_louvain,
-                            default = T, minClusterSize = 20,deepSplit = 2, conf = 0.5)
-  
-  incProgress(6/7 /5, detail = paste("Computing 2D map..."))
-  
-  PROJ <- compute_2d_embedding(data = whole[,top_pc_genes],
-                               sp.samples = subsamples_louvain,
-                               clust.list = clust.list)
-  
-               })
-  umap_mat_1<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
-  
-  ret_frame = cbind(filtered.data$barcodes, umap_mat_1)
-  
-  temp = complete.cases(umap_mat_1)
-  umap_mat_1 = umap_mat_1[temp, ]
-  p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
-  umap_mat<-ret_frame
-  rownames(umap_mat)<-umap_mat[,1]
-  umap_mat<-umap_mat[,-1]
-  names(umap_mat)<-c("UMAP_1","UMAP_2","color")
-  umap_mat<<-umap_mat[,-3]
-  p
+  #withProgress(message = 'Creating scatter plot', value = 0,
+ # withProgress(message = 'Creating scatter plot', value = 0,
+              # {
+                 x <- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
+                 pb<- as.SingleCellExperiment(x)
+                 rm(x)
+                 pb
+                 pb<-FilterCells(pb)
+                 pb<-FilterGenes(pb)
+                 
+                 # filtered.data <<- filter_cells(data_1)
+                 # names(data_1) = c("mat","barcodes","gene_symbols")
+                # incProgress(1/7  /5, detail = paste("Data filter complete."))
+                 #names(data) = c("mat","barcodes")
+                 
+                 #filtered.data = filter_cells(data_1)
+                 incProgress(2/7 /5, detail = paste("Normalize data.."))
+                 pb<-CountNormalize(pb)
+                 
+                 #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
+                # incProgress(4/7 /5, detail = paste("dropClust Sampling..."))
+                 
+                 
+                 pb<-RankGenes(pb, ngenes_keep = 1000)
+                 pb<-Sampling(pb)
+                 pb<-RankPCAGenes(pb)
+                 pb<-Cluster(pb, method = "default", conf = 0.8)
+                 
+                 pb<-PlotEmbedding(pb, embedding = "umap", spread = 10, min_dist = 0.1)
+                 
+                 plot_data = data.frame("Y1" = reducedDim(pb,"umap")[,1], Y2 = reducedDim(pb, "umap")[,2], color = pb$ClusterIDs)
+                 
+                 p=ScatterPlot(pb,title = "Clusters") 
+  # umap_mat_1<<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
+  # 
+  # ret_frame <<- cbind(filtered.data$barcodes, umap_mat_1)
+  # 
+  # temp = complete.cases(umap_mat_1)
+  # umap_mat_1 = umap_mat_1[temp, ]
+  # p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
+  # umap_mat<-ret_frame
+  # rownames(umap_mat)<-umap_mat[,1]
+  # umap_mat<-umap_mat[,-1]
+  # names(umap_mat)<-c("UMAP_1","UMAP_2","color")
+  # umap_mat<<-umap_mat[,-3]
+  p          # {
+ 
  
 })
 
@@ -5515,7 +5377,7 @@ scatter_drop<-reactive({
 
 
 output$drop_clust_scatter <- downloadHandler(
-  filename = function(){'VLN_plot.pdf'},
+  filename = function(){'scatter_plot.pdf'},
   content = function(file){
     pdf(file)
     print( scatter_drop()
@@ -5527,208 +5389,154 @@ output$drop_clust_scatter <- downloadHandler(
 
 drop_clust_table<-reactive({
 
-  x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  expr<-x@assays$RNA@counts
-  
-  mat = t(expr)
-  mat
-  barcodes = rownames(mat)
-  barcodes
-  gene_symbols = colnames(mat)
-  gene_symbols
-  
-  data_1[[1]]<-mat
-  data_1[[2]]<-barcodes
-  data_1[[3]]<-gene_symbols
-  names(data_1) = c("mat","barcodes","gene_symbols")
-  
-  #names(data) = c("mat","barcodes")
-  
-  
-  #names(data) = c("mat","barcodes")
-  
-  filtered.data = filter_cells(data_1)
-  lnorm<-normalize(filtered.data, min.count=2, min.cell=3)
-  
-  #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  lnorm_transposed<-t(lnorm$m)
-  lnorm_object<-CreateSeuratObject(lnorm_transposed,min.cells = 3, min.features = 200,project = "scRNAseq")
-  pb <<- FindVariableFeatures(lnorm_object, selection.method = "vst", nfeatures = 2000)
-  dp_genes <<- VariableFeatures(pb)
-  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
-  
-  #x<- CreateSeuratObject(counts = data(), min.cells = 3, min.features = 200,project = "scRNAseq")
-  
-  #dp_genes <- dispersion_genes(lnorm, ngenes_keep = 1000)
-  
-  
-  whole <- matrix.transform(lnorm,dp_genes, batch_correction = F)
-  
-  sample_ids = initial.samples(filtered.data, rare_data=NULL)
-  samples_louvain<-sampling(whole[sample_ids,])
-  subsamples_louvain<-sample_ids[samples_louvain]
-  top_pc_genes<-pc_genes(whole[subsamples_louvain,],top=200)
-  clust.list<-cluster.cells(data = whole[,top_pc_genes], sp.samples = subsamples_louvain,
-                            default = T, minClusterSize = 20,deepSplit = 2, conf = 0.5)
-  
-  PROJ <- compute_2d_embedding(data = whole[,top_pc_genes],
-                               sp.samples = subsamples_louvain,
-                               clust.list = clust.list)
-  
-  
-  umap_mat_1<-data.frame(Y1 = PROJ[,1],Y2 = PROJ[,2],color = as.factor(clust.list$cluster.ident))
-  
-  ret_frame = cbind(filtered.data$barcodes, umap_mat_1)
-  
-  temp = complete.cases(umap_mat)
-  umap_mat_1 = umap_mat_1[temp, ]
-  
-  p<-all_plot(umap_mat_1,filename = NA, title = "dropClust clusters")
-  
-  
-  
-  select_sample_ids = which(is.na(clust.list$cluster.ident)==F)
-  #incProgress(1/5 /5, detail = paste("Computating..."))
-  
-  
-  # Read predicted cluster IDs
-  pred_labels = clust.list$cluster.ident[select_sample_ids]
-  
-  return_list[[1]]<-p
-  return_list[[2]]<-ret_frame
-  return_list[[3]]<-pred_labels
-  return_list[[4]]<-lnorm
-  return_list[[5]]<-clust.list
-  return_list[[6]]<-filtered.data$barcodes
-  return_list[[7]]<-select_sample_ids
-  
-  names(return_list)<-c("plot","df","pred_labels","lnorm","clust.list","barcodes","assigned")
-  
-  
-  
-  
-  df<-return_list$df
-  
-  names(df)<-c("cell_ids", "X", "Y", "cluster_ids")
-  
-  
-  df<-df[,c("cell_ids", "cluster_ids")]
-  
-  clust.list = return_list$clust.list
-  lnorm = return_list$lnorm
-  de.mat<- reduce_mat_de(lnorm,clust.list)
-  
-  
-  
-  # Pick Cell Type Specific Genes
-  #############################
-  
-  # Cells of interest
-  GRP = levels(clust.list$cluster.ident)
-  # int_cells  = which(label %in% GRP)
-  
-  
-  lfc_th = 1
-  q_th = 0.001
-  nDE = 25
-  
-  raw_data = de.mat$mat_samples
-  labels = de.mat$labels
-  
-  
-  cell.ids = which(labels %in% GRP)
-  
-  
-  
-  
-  
-  n = length(GRP)
-  
-  #incProgress(2/5 /5, detail = paste("Computing Wilcoxon p values..."))
-  
-  
-  for(i in unique(GRP)){
-    
-    IND_a = which(labels == i)
-    #IND_b = setdiff(1:ncol(data),IND_a)
-    IND_b = which(labels != i)
-    cat(paste("\nCluster",i,":\n"))
-    
-    # getting wilcoxon p values
-    cat("\nComputing Wilcoxon p values...\n")
-    PVAL<-apply(raw_data,2,function(x) stats::wilcox.test(x[IND_a],x[IND_b])$p.value)
-    
-    # fdr
-    fdr <- stats::p.adjust(PVAL,method="fdr")
-    
-    # prepare final result
-    DE_res <- data.frame(cbind(pvalues=PVAL,qvalues=fdr))
-    
-    rownames(DE_res) <- colnames(raw_data)
-    
-    
-    # log fold change
-    cat("Computing Log fold change values...\n")
-    LFC = log2(Matrix::colMeans(raw_data[IND_a,])/Matrix::colMeans(raw_data[IND_b,]))
-    
-    
-    cat("\nCompleted successfully.\n")
-    
-    
-    sig = DE_res[intersect(which(LFC>0),
-                           intersect(which(abs(LFC)>=lfc_th),
-                                     which(DE_res$qvalues<=q_th))),]
-    
-    
-    rN = rownames(sig)[order(sig$qvalues)]
+ # withProgress(message = 'Marker Identification ...', value = 0,{
     
     
     
-    DE_list[[paste0(i)]] = data.frame(gene = rN,
-                                      q_val = DE_res$qvalues[match(rN,rownames(DE_res))],
-                                      fc = LFC[match(rN,names(LFC))])
-  }
-  
-  #incProgress(3/5 /5, detail = paste("Dataframe for DE genes "))
-  
-  
-  for(type in names(DE_list)){
-    ordered = order(DE_list[[type]]$q_val,abs(DE_list[[type]]$fc))
-    row = as.character(utils::head(DE_list[[type]]$gene[ordered],nDE))
-    DE_up[[type]]= row
-  }
-  
-  DE_up<-top.de.genes(DE_list, nDE)
-  
-  genes_df <-list_to_df(DE_up)
-  colnames(genes_df)<-paste("cluster",names(DE_up),sep='_')
-  
-  p<-plot_heatmap(de_data = de.mat, DE_res = DE_list,nDE = 10)
-  RES[[1]]<-genes_df
-  RES[[2]]<-DE_list
-  RES[[3]]<-p
-  RES[[4]]<-GRP
-  
-  
-  
-  names(RES) = c("genes.df",  "DE_res" , "heatmap","types")
-  
-  # incProgress(4/5 /5, detail = paste("DE genes....."))
-  
-  
-  z<-RES$types
-  z<-unique(z)
-  d = c()
-  for(i in z)
-  {
-    y<- DE_list[[i]]
-    y$clusters<-i
-    #x<- cbind(x,y)
-    # temp=matrix(c(y,i,ncol=2))
-    d=rbind(d,y)
-  }
-  pb.markers<<-d
-  pb.markers 
+    
+    select_sample_ids = which(is.na(clust.list$cluster.ident)==F)
+    incProgress(1/5 /5, detail = paste("Computating..."))
+    
+    
+    # Read predicted cluster IDs
+    pred_labels = clust.list$cluster.ident[select_sample_ids]
+    
+    return_list[[1]]<-p
+    return_list[[2]]<-ret_frame
+    return_list[[3]]<-pred_labels
+    return_list[[4]]<-lnorm
+    return_list[[5]]<-clust.list
+    return_list[[6]]<-filtered.data$barcodes
+    return_list[[7]]<-select_sample_ids
+    
+    names(return_list)<-c("plot","df","pred_labels","lnorm","clust.list","barcodes","assigned")
+    
+    
+    
+    
+    df<-return_list$df
+    
+    names(df)<-c("cell_ids", "X", "Y", "cluster_ids")
+    
+    
+    df<-df[,c("cell_ids", "cluster_ids")]
+    
+    clust.list = return_list$clust.list
+    lnorm = return_list$lnorm
+    de.mat<- reduce_mat_de(lnorm,clust.list)
+    
+    
+    
+    # Pick Cell Type Specific Genes
+    #############################
+    
+    # Cells of interest
+    GRP = levels(clust.list$cluster.ident)
+    # int_cells  = which(label %in% GRP)
+    
+    
+    lfc_th = 1
+    q_th = 0.001
+    nDE = 25
+    
+    raw_data = de.mat$mat_samples
+    labels = de.mat$labels
+    
+    
+    cell.ids = which(labels %in% GRP)
+    
+    
+    
+    
+    
+    n = length(GRP)
+    
+    #incProgress(2/5 /5, detail = paste("Computing Wilcoxon p values..."))
+    
+    
+    for(i in unique(GRP)){
+      
+      IND_a = which(labels == i)
+      #IND_b = setdiff(1:ncol(data),IND_a)
+      IND_b = which(labels != i)
+      cat(paste("\nCluster",i,":\n"))
+      
+      # getting wilcoxon p values
+      cat("\nComputing Wilcoxon P-Values...\n")
+      PVAL<-apply(raw_data,2,function(x) stats::wilcox.test(x[IND_a],x[IND_b])$p.value)
+      
+      # fdr
+      fdr <- stats::p.adjust(PVAL,method="fdr")
+      
+      # prepare final result
+      DE_res <- data.frame(cbind(pvalues=PVAL,qvalues=fdr))
+      
+      rownames(DE_res) <- colnames(raw_data)
+      
+      
+      # log fold change
+      cat("Computing Log fold change values...\n")
+      LFC = log2(Matrix::colMeans(raw_data[IND_a,])/Matrix::colMeans(raw_data[IND_b,]))
+      
+      
+      cat("\nCompleted successfully.\n")
+      
+      
+      sig = DE_res[intersect(which(LFC>0),
+                             intersect(which(abs(LFC)>=lfc_th),
+                                       which(DE_res$qvalues<=q_th))),]
+      
+      
+      rN = rownames(sig)[order(sig$qvalues)]
+      
+      
+      
+      DE_list[[paste0(i)]] = data.frame(gene = rN,
+                                        q_val = DE_res$qvalues[match(rN,rownames(DE_res))],
+                                        fc = LFC[match(rN,names(LFC))])
+    }
+    
+   # incProgress(3/5 /5, detail = paste("Dataframe for DE genes "))
+    
+    
+    for(type in names(DE_list)){
+      ordered = order(DE_list[[type]]$q_val,abs(DE_list[[type]]$fc))
+      row = as.character(utils::head(DE_list[[type]]$gene[ordered],nDE))
+      DE_up[[type]]= row
+    }
+    
+    DE_up<-top.de.genes(DE_list, nDE)
+    
+    genes_df <-list_to_df(DE_up)
+    colnames(genes_df)<-paste("cluster",names(DE_up),sep='_')
+    
+    p<-plot_heatmap(de_data = de.mat, DE_res = DE_list,nDE = 10)
+    RES[[1]]<-genes_df
+    RES[[2]]<-DE_list
+    RES[[3]]<-p
+    RES[[4]]<-GRP
+    
+    
+    
+    names(RES) = c("genes.df",  "DE_res" , "heatmap","types")
+    
+  #  incProgress(4/5 /5, detail = paste("DE genes....."))
+    
+    
+    z<-RES$types
+    z<-unique(z)
+    d = c()
+    for(i in z)
+    {
+      y<- DE_list[[i]]
+      y$clusters<-i
+      #x<- cbind(x,y)
+      # temp=matrix(c(y,i,ncol=2))
+      d=rbind(d,y)
+    }
+    pb.markers<<-d
+    
+ # })
 })
 
 output$drop_clust_de <- downloadHandler(
