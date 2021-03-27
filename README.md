@@ -41,13 +41,12 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
 1. Download the github repository. <br/>
 2. Install all the required packages. <br/>
 3. Put all the files and folders in one directory.<br/>
-4. Download the sample file and regulon file from the link: <br/> https://drive.google.com/drive/folders/1Hk__Muaww1aizAp1K81LYr90wtk7aBYT?usp=sharing <br/>
-5. Set the working directory by using the command: <br/>
+4. Set the working directory by using the command: <br/>
    ```
    setwd("Ectracker-main/main")
    ```
-6. Open the ui.R and server.R in RStudio <br/>
-7. To run the app, user can directly click on <b>Run App</b> or use command: 
+5. Open the ui.R and server.R in RStudio <br/>
+6. To run the app, user can directly click on <b>Run App</b> or use command: 
    ```
    shiny::runApp()
    ```
