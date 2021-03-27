@@ -34,8 +34,11 @@ karyoploteR (version: 1.14.1), org.Hs.eg.db (version:3.11.4), TxDb.Hsapiens.UCSC
    setwd("Ectracker-main/main") 
    ```
 4. User should also install Rtools from website https://cran.r-project.org/bin/windows/Rtools/ <br/>
-5. Install the dependencies by running line by line code of <b>Dependencies.R</b> on R 
-6. Once all the dependencies are installed this will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun/ which the user can use to run the application.<br/>
+5. Install the dependencies by running line by line code of <b>Dependencies.R</b> on R or RStudio 
+6. Once all the dependencies are installed,
+```shinyShortcut(shinyDirectory = getwd(), OS = .Platform$OS.type,gitIgnore = FALSE)
+```
+will create a file <b>shinyShortcut.cmd</b> in folder Ectracker-main/main/.shinyrun which the user can use to run the application.<br/>
  
 ## Instructions to run EcTracker code locally<br/> 
 1. Download the github repository. <br/>
